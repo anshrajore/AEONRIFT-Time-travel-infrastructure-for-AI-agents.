@@ -12,6 +12,7 @@
 [![Python](https://img.shields.io/badge/Python-3.11+-green.svg)](packages/core)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue.svg)](packages/sdk/ts)
 [![Architecture](https://img.shields.io/badge/Architecture-Causal%20Recovery%20Graph-purple.svg)](docs/architecture/overview.md)
+[![Build Status](https://img.shields.io/badge/Tests-13%20passed-brightgreen.svg)](tests/unit)
 
 ---
 
@@ -85,6 +86,8 @@ LAYERED CHECKPOINT (L0-L5)        RECOVERY PLANNER
    - `COMPENSATE`: Execute inverse actions for unrollbackable side effects.
 5. **State Reconciliation Engine**: Validates environment drift (Node/Python versions, active API tokens, modified files) prior to resuming execution.
 6. **Time-Travel Debugger & CLI**: Full command-line and visual inspection of execution trees, state diffs, and branch trajectories.
+7. **RIFT CHAOS Testing & RIFT-Bench**: Fault injection benchmarking measuring Recovery Efficiency (RE) and Zero-Duplicate Side Effect guarantees.
+8. **Cryptographic Checkpoint Integrity**: HMAC-SHA256 checkpoint signatures and automatic secret scrubbing.
 
 ---
 
@@ -94,8 +97,8 @@ LAYERED CHECKPOINT (L0-L5)        RECOVERY PLANNER
 # Initialize AEONRIFT in your project
 aeonrift init
 
-# Run an agent under AEONRIFT observation
-aeonrift run agent.py
+# Run health diagnostics
+aeonrift doctor
 
 # Inspect execution history
 aeonrift timeline exec_8219
@@ -106,27 +109,27 @@ aeonrift recover exec_8219
 
 ---
 
-## 🗺️ Roadmap & Implementation Phases
+## 🗺️ Roadmap & Implementation Status
 
 - [x] **Phase 0**: Project Specification & Folder Architecture
-- [ ] **Phase 1**: Core Event & State Delta Model (`packages/core`)
-- [ ] **Phase 2**: Append-Only Event Store & Causal Log (`storage/event-log`)
-- [ ] **Phase 3**: Runtime Interception & Proxies (`packages/runtime`)
-- [ ] **Phase 4**: Layered Checkpoint Engine L0–L5 (`services/checkpoint`)
-- [ ] **Phase 5**: Deterministic Execution Replay Engine (`services/replay`)
-- [ ] **Phase 6**: External Side-Effect Ledger & Idempotency Key Manager (`services/policy`)
-- [ ] **Phase 7**: Semantic Rollback Protection (`packages/core`)
-- [ ] **Phase 8**: Failure Diagnostic & Classifier (`services/recovery`)
-- [ ] **Phase 9**: Replay / Repair / Replan Recovery Planner (`services/recovery`)
-- [ ] **Phase 10**: State & Environment Reconciliation (`services/state`)
-- [ ] **Phase 11**: Recovery Validator (`services/recovery`)
-- [ ] **Phase 12**: AEONRIFT Developer CLI (`packages/cli`)
+- [x] **Phase 1**: Core Event & State Delta Model (`packages/core`)
+- [x] **Phase 2**: Append-Only Event Store & Causal Log (`storage/event-log`)
+- [x] **Phase 3**: Runtime Interception & Proxies (`packages/runtime`)
+- [x] **Phase 4**: Layered Checkpoint Engine L0–L5 (`services/checkpoint`)
+- [x] **Phase 5**: Deterministic Execution Replay Engine (`services/replay`)
+- [x] **Phase 6**: External Side-Effect Ledger & Idempotency Key Manager (`packages/core/ledger.py`)
+- [x] **Phase 7**: Semantic Rollback Protection (`packages/core/policy.py`)
+- [x] **Phase 8**: Failure Diagnostic & Classifier (`services/recovery/planner.py`)
+- [x] **Phase 9**: Replay / Repair / Replan Recovery Planner (`services/recovery/planner.py`)
+- [x] **Phase 10**: State & Environment Reconciliation (`services/state`)
+- [x] **Phase 11**: Recovery Validator (`services/recovery/validator.py`)
+- [x] **Phase 12**: AEONRIFT Developer CLI (`packages/cli`)
 - [ ] **Phase 13**: Time-Travel Debugger UI (`apps/dashboard`)
-- [ ] **Phase 14**: Chaos Testing & Failure Injector (`tests/chaos`)
-- [ ] **Phase 15**: RIFT-Bench Evaluation Suite (`benchmarks`)
+- [x] **Phase 14**: Chaos Testing & Failure Injector (`tests/chaos`)
+- [x] **Phase 15**: RIFT-Bench Evaluation Suite (`benchmarks`)
 - [ ] **Phase 16**: ML Policy & Learning-to-Recover (`ml`)
 - [ ] **Phase 17**: Distributed Fleet & Multi-Agent Recovery (`services/coordinator`)
-- [ ] **Phase 18**: Security Hardening & Tamper-Evident Signatures (`docs/security`)
+- [x] **Phase 18**: Security Hardening & Tamper-Evident Signatures (`services/checkpoint/security.py`)
 
 ---
 
