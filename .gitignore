@@ -52,3 +52,5 @@ storage/snapshots/*
 !storage/snapshots/.gitkeep
 storage/event-log/*
 !storage/event-log/.gitkeep
+
+venv/
