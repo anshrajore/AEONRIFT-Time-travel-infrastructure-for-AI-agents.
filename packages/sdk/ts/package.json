@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "test": "node -e \"console.log('AEONRIFT SDK Tests Passed')\""
+    "test": "node test/test_sdk.js"
   },
   "keywords": [
     "ai",

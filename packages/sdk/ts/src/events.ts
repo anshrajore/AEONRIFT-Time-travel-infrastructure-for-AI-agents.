@@ -6,6 +6,7 @@ export enum EventType {
   LLM_CALL = "LLM_CALL",
   LLM_RESULT = "LLM_RESULT",
   TOOL_CALL = "TOOL_CALL",
+  TOOL_CALL_INITIATED = "TOOL_CALL_INITIATED",
   TOOL_RESULT = "TOOL_RESULT",
   FILE_WRITE = "FILE_WRITE",
   FILE_DELETE = "FILE_DELETE",
@@ -18,11 +19,19 @@ export enum EventType {
   ROLLBACK = "ROLLBACK"
 }
 
+export enum EventSource {
+  RUNTIME_INTERCEPTOR = "RUNTIME_INTERCEPTOR",
+  AGENT = "AGENT",
+  SYSTEM = "SYSTEM"
+}
+
 export enum SideEffectType {
   READ_ONLY = "READ_ONLY",
   MUTATING_REVERSIBLE = "MUTATING_REVERSIBLE",
   MUTATING_IRREVERSIBLE = "MUTATING_IRREVERSIBLE",
-  EXTERNAL_STATE_MUTATION = "EXTERNAL_STATE_MUTATION"
+  EXTERNAL_STATE_MUTATION = "EXTERNAL_STATE_MUTATION",
+  API_WRITE = "API_WRITE",
+  NONE = "NONE"
 }
 
 export enum ReversibilityType {
@@ -32,19 +41,28 @@ export enum ReversibilityType {
 }
 
 export interface ExecutionEvent {
-  id: string;
-  agentId: string;
-  executionId: string;
-  eventType: EventType;
-  stepNumber: number;
-  payload: Record<string, any>;
-  result?: Record<string, any>;
+  event_id: string;
+  execution_id: string;
   timestamp: number;
-  inputHash?: string;
-  outputHash?: string;
-  causalHash?: string;
-  sideEffectType: SideEffectType;
+  event_type: EventType;
+  source: EventSource;
+  payload: Record<string, any>;
+  hash?: string;
+}
+
+export interface SideEffectRecord {
+  record_id: string;
+  action_name: string;
+  idempotency_key: string;
+  status: string;
   reversibility: ReversibilityType;
-  idempotencyKey?: string;
-  recoveryRelevant: boolean;
+}
+
+export interface LayeredCheckpoint {
+  checkpoint_id: string;
+  execution_id: string;
+  level: string;
+  timestamp: number;
+  state_hash: string;
+  metadata: Record<string, any>;
 }

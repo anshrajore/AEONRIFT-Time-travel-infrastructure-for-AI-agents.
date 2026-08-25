@@ -63,6 +63,17 @@ class FailureClassifier:
             return FailureCategory.LLM_FAILURE
         return FailureCategory.UNKNOWN
 
+    @classmethod
+    def classify_error_message(cls, msg: str) -> FailureCategory:
+        payload_str = msg.lower()
+        if "timeout" in payload_str or "connection" in payload_str:
+            return FailureCategory.NETWORK_FAILURE
+        if "unauthorized" in payload_str or "401" in payload_str or "403" in payload_str:
+            return FailureCategory.AUTH_FAILURE
+        if "corrupt" in payload_str or "invalid state" in payload_str:
+            return FailureCategory.STATE_CORRUPTION
+        return FailureCategory.UNKNOWN
+
 
 class RecoveryPlanner:
     """
