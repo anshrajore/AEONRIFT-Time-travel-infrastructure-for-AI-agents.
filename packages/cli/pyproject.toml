@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aeonrift-cli"
+version = "0.1.0"
+description = "Command-line interface for AEONRIFT time-travel infrastructure."
+readme = "README.md"
+authors = [
+    { name = "AEONRIFT Contributors" }
+]
+license = { text = "Apache-2.0" }
+requires-python = ">=3.11"
+dependencies = [
+    "aeonrift-core",
+    "aeonrift-runtime"
+]
+
+[project.scripts]
+aeonrift = "aeonrift.cli.main:main"
