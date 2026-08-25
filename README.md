@@ -16,8 +16,11 @@
 [![Python](https://img.shields.io/badge/Python-3.11+-black.svg?style=for-the-badge&logo=python)](packages/core)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-black.svg?style=for-the-badge&logo=typescript)](packages/sdk/ts)
 [![Build Status](https://img.shields.io/badge/Tests-17%20passed-black.svg?style=for-the-badge)](tests/unit)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-aeonrift.vercel.app-black.svg?style=for-the-badge&logo=vercel)](https://aeonrift.vercel.app)
 
 </div>
+
+> 🌐 **Live landing page**: [aeonrift.vercel.app](https://aeonrift.vercel.app)
 
 ---
 
