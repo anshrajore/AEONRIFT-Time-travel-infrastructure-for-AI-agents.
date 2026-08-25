@@ -852,8 +852,99 @@
     .cc-icon { font-size: 32px; margin-bottom: 16px; }
 
     /* ═══════════════════════════════════════════
-       SECTION: CTA (Thanks / Ending)
+       SECTION: DEVELOPER (Ansh Rajore)
     ═══════════════════════════════════════════ */
+    .developer-section {
+      background: var(--off);
+      border-bottom: 1.5px solid var(--black);
+    }
+    .developer-header {
+      padding: 40px;
+      border-bottom: 1.5px solid var(--black);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+    .developer-header-title {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+    .developer-body {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+    }
+    .dev-profile-col {
+      padding: 56px 48px;
+      border-right: 1.5px solid var(--black);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .dev-badge-row { display: flex; gap: 10px; margin-bottom: 24px; }
+    .dev-name {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(40px, 4.5vw, 64px);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -1.5px;
+      margin-bottom: 12px;
+    }
+    .dev-role {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+    .dev-quote {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 20px;
+      line-height: 1.5;
+      color: var(--black);
+      padding-left: 20px;
+      border-left: 3px solid var(--neon);
+      margin-bottom: 36px;
+    }
+    .dev-socials { display: flex; gap: 12px; flex-wrap: wrap; }
+    .dev-specs-col {
+      padding: 56px 48px;
+      background: var(--white);
+    }
+    .dev-specs-title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+    .dev-spec-list { display: flex; flex-direction: column; gap: 24px; }
+    .dev-spec-item {
+      display: flex;
+      gap: 18px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--mid);
+    }
+    .dev-spec-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .dev-spec-icon {
+      width: 42px; height: 42px;
+      background: var(--black);
+      color: var(--neon);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .dev-spec-title { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+    .dev-spec-desc { font-size: 13.5px; color: var(--muted); line-height: 1.65; }
     .cta-section {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -1054,6 +1145,7 @@
     <li><a href="#research">Research</a></li>
     <li><a href="#cli">CLI</a></li>
     <li><a href="#metrics">Metrics</a></li>
+    <li><a href="#developer">Developer</a></li>
   </ul>
   <div class="nav-actions">
     <a class="btn-outline" href="https://github.com/anshrajore/AEONRIFT-Time-travel-infrastructure-for-AI-agents." target="_blank">GitHub ↗</a>
@@ -1611,6 +1703,67 @@
       <div class="cc-icon">🛡️</div>
       <div class="cc-title">Security + Fleet</div>
       <p class="cc-sub">HMAC signing, secret scrubbing, multi-agent FleetCoordinator, causal cascade recovery across agent networks.</p>
+    </div>
+  </div>
+<!-- ─── DEVELOPER SECTION ──────────────────────────────── -->
+<div class="developer-section" id="developer">
+  <div class="developer-header">
+    <div>
+      <div class="num-label">SECTION 09 — LEAD ARCHITECT</div>
+      <h2 class="developer-header-title r">Developer &amp; Creator</h2>
+    </div>
+    <span class="tag tag-neon r">Ansh Rajore</span>
+  </div>
+  <div class="developer-body">
+    <div class="dev-profile-col r">
+      <div>
+        <div class="dev-badge-row">
+          <span class="tag tag-black">Creator</span>
+          <span class="tag tag-neon">Sole Architect</span>
+        </div>
+        <h3 class="dev-name">Ansh Rajore</h3>
+        <div class="dev-role">Lead AI Infrastructure Engineer</div>
+        <p class="dev-quote">
+          "Autonomous AI agents cannot scale in enterprise environments if single API timeouts force full execution restarts. I architected AEONRIFT to introduce mathematical causal durability and zero-side-effect time travel."
+        </p>
+      </div>
+      <div class="dev-socials">
+        <a class="btn-black-large" href="https://github.com/anshrajore" target="_blank">GitHub Profile ↗</a>
+        <a class="btn-outline-black" href="https://github.com/anshrajore/AEONRIFT-Time-travel-infrastructure-for-AI-agents." target="_blank">AEONRIFT Repository ↗</a>
+      </div>
+    </div>
+    <div class="dev-specs-col r">
+      <div class="dev-specs-title">Architectural Contributions</div>
+      <div class="dev-spec-list">
+        <div class="dev-spec-item">
+          <div class="dev-spec-icon">🌐</div>
+          <div>
+            <div class="dev-spec-title">Causal State Graph &amp; Parent Chaining</div>
+            <div class="dev-spec-desc">Engineered the SHA-256 parent-hashed DAG primitive for cryptographically tamper-evident event lineage and sub-millisecond safe-checkpoint resolution.</div>
+          </div>
+        </div>
+        <div class="dev-spec-item">
+          <div class="dev-spec-icon">🛡️</div>
+          <div>
+            <div class="dev-spec-title">Rollback Guard &amp; Idempotency Ledger</div>
+            <div class="dev-spec-desc">Designed side-effect barriers preventing duplicate payments, API re-mutations, and ACRFence-class semantic rollback attacks during trajectory replay.</div>
+          </div>
+        </div>
+        <div class="dev-spec-item">
+          <div class="dev-spec-icon">💾</div>
+          <div>
+            <div class="dev-spec-title">Multi-Level Checkpoint Engine (L0–L5)</div>
+            <div class="dev-spec-desc">Implemented semantic turn-pruning policy based on 2026 Crab research, reducing snapshot storage overhead by over 75%.</div>
+          </div>
+        </div>
+        <div class="dev-spec-item">
+          <div class="dev-spec-icon">📦</div>
+          <div>
+            <div class="dev-spec-title">Cross-Language Runtime &amp; NPM Release</div>
+            <div class="dev-spec-desc">Built the full Python SDK, CLI runner, LangChain/CrewAI adapters, and published the official `aeonrift` TypeScript SDK package to NPM.</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
