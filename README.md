@@ -67,16 +67,25 @@ AEONRIFT is directly built upon landmark 2026 research papers addressing critica
 
 ## ⚡️ Quick Start & Installation
 
-### Python SDK & CLI
-```bash
-pip install aeonrift-core aeonrift-runtime aeonrift-cli
-```
-
-### TypeScript / Node.js SDK
+### Option A: TypeScript / Node.js SDK (Published on NPM)
 ```bash
 npm install aeonrift
-# or globally
-npm install -g aeonrift
+
+# Note: If installing into an existing frontend project with peer dependency conflicts (e.g. Vite 7), use:
+npm install aeonrift --legacy-peer-deps
+```
+
+### Option B: Python SDK & CLI (Repository Setup)
+```bash
+git clone https://github.com/anshrajore/AEONRIFT-Time-travel-infrastructure-for-AI-agents..git
+cd AEONRIFT-Time-travel-infrastructure-for-AI-agents.
+
+# Run CLI directly
+python3 ./aeonrift doctor
+python3 ./aeonrift benchmark
+
+# Or install the built wheel locally
+pip install dist/aeonrift-0.1.0-py3-none-any.whl
 ```
 
 ---

@@ -1,0 +1,28 @@
+#!/usr/bin/env python3
+"""
+AEONRIFT Executable CLI Runner
+"""
+
+import sys
+import os
+
+# Insert workspace directories into PYTHONPATH
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "packages", "core"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "packages", "runtime"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "packages", "cli"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "services", "checkpoint"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "services", "recovery"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "services", "state"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "services", "coordinator"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "services", "gateway"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "storage", "event-log"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "benchmarks"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "ml", "datasets"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "ml", "models"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "ml", "training"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "adapters"))
+
+from aeonrift.cli.main import main
+
+if __name__ == "__main__":
+    main()
