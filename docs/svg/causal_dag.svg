@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380" width="100%" height="100%" style="background:#0a0a0a; font-family:'Inter', system-ui, -apple-system, sans-serif;">
+  <!-- Title Banner -->
+  <text x="40" y="45" fill="#BDFF00" font-size="12" font-weight="700" letter-spacing="3" font-family="monospace">CAUSAL STATE GRAPH (DAG) &amp; RECOVERY TRAJECTORY</text>
+  <text x="40" y="70" fill="#FFFFFF" font-size="20" font-weight="800" letter-spacing="-0.5">SHA-256 Chained Lineage &amp; Idempotency Ledger Guard</text>
+  <line x1="40" y1="85" x2="860" y2="85" stroke="#222222" stroke-width="1.5"/>
+
+  <!-- Event 1: Init -->
+  <g transform="translate(60, 140)">
+    <circle cx="40" cy="40" r="30" fill="#1A1A1A" stroke="#444444" stroke-width="2"/>
+    <text x="40" y="44" fill="#FFFFFF" font-size="11" font-weight="700" text-anchor="middle" font-family="monospace">E_01</text>
+    <text x="40" y="90" fill="#888888" font-size="11" text-anchor="middle">Process Init</text>
+    <text x="40" y="106" fill="#555555" font-size="9" text-anchor="middle" font-family="monospace">hash: a1b2...</text>
+  </g>
+
+  <path d="M 140 180 L 190 180" stroke="#444444" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Event 2: Tool Call (Reversible) -->
+  <g transform="translate(200, 140)">
+    <circle cx="40" cy="40" r="30" fill="#1A1A1A" stroke="#444444" stroke-width="2"/>
+    <text x="40" y="44" fill="#FFFFFF" font-size="11" font-weight="700" text-anchor="middle" font-family="monospace">E_02</text>
+    <text x="40" y="90" fill="#888888" font-size="11" text-anchor="middle">fetch_data</text>
+    <text x="40" y="106" fill="#555555" font-size="9" text-anchor="middle" font-family="monospace">reversible</text>
+  </g>
+
+  <path d="M 280 180 L 330 180" stroke="#BDFF00" stroke-width="2"/>
+
+  <!-- Event 3: Side Effect + Checkpoint L3 (Irreversible) -->
+  <g transform="translate(340, 140)">
+    <rect x="0" y="0" width="130" height="80" rx="8" fill="#1E2A00" stroke="#BDFF00" stroke-width="2"/>
+    <text x="65" y="32" fill="#BDFF00" font-size="12" font-weight="800" text-anchor="middle">payment_api</text>
+    <text x="65" y="50" fill="#FFFFFF" font-size="10" font-weight="700" text-anchor="middle">L3 Checkpoint</text>
+    <text x="65" y="66" fill="#BDFF00" font-size="9" text-anchor="middle" font-family="monospace">LEDGER LOCKED</text>
+    <text x="65" y="100" fill="#BDFF00" font-size="11" text-anchor="middle" font-weight="700">IRREVERSIBLE</text>
+  </g>
+
+  <path d="M 480 180 L 530 180" stroke="#BDFF00" stroke-width="2"/>
+
+  <!-- Event 4: Failure Node -->
+  <g transform="translate(540, 140)">
+    <circle cx="40" cy="40" r="32" fill="#3A0A0A" stroke="#FF4444" stroke-width="2"/>
+    <text x="40" y="44" fill="#FF4444" font-size="12" font-weight="800" text-anchor="middle" font-family="monospace">FAIL</text>
+    <text x="40" y="90" fill="#FF4444" font-size="11" font-weight="700" text-anchor="middle">LLM Timeout</text>
+    <text x="40" y="106" fill="#888888" font-size="9" text-anchor="middle" font-family="monospace">CRITICAL</text>
+  </g>
+
+  <!-- Recovery Arc -->
+  <path d="M 570 135 C 570 60, 410 60, 410 125" fill="none" stroke="#BDFF00" stroke-width="2.5" stroke-dasharray="6,4"/>
+  <polygon points="410,135 404,123 416,123" fill="#BDFF00"/>
+  <rect x="420" y="70" width="160" height="26" rx="4" fill="#0A0A0A" stroke="#BDFF00" stroke-width="1"/>
+  <text x="500" y="87" fill="#BDFF00" font-size="10" font-weight="700" text-anchor="middle" font-family="monospace">REPLAY TO L3 (0.94 CONF)</text>
+
+  <!-- Legend Box -->
+  <g transform="translate(60, 285)">
+    <rect x="0" y="0" width="780" height="60" rx="6" fill="#141414" stroke="#222222"/>
+    <circle cx="30" cy="30" r="8" fill="#1E2A00" stroke="#BDFF00" stroke-width="2"/>
+    <text x="48" y="34" fill="#FFFFFF" font-size="11" font-weight="600">Side-Effect Committed (Ledger Guarded)</text>
+
+    <circle cx="300" cy="30" r="8" fill="#3A0A0A" stroke="#FF4444" stroke-width="2"/>
+    <text x="318" y="34" fill="#FFFFFF" font-size="11" font-weight="600">Failure Point (Classified)</text>
+
+    <line x1="520" y1="30" x2="550" y2="30" stroke="#BDFF00" stroke-width="2" stroke-dasharray="4,2"/>
+    <text x="560" y="34" fill="#BDFF00" font-size="11" font-weight="700">Verified-Prefix Replay Path</text>
+  </g>
+</svg>
