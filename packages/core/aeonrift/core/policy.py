@@ -103,10 +103,11 @@ class RollbackGuard:
     def check_rollback_hazard(
         self,
         event: ExecutionEvent,
-        ledger: SideEffectLedger
+        ledger: SideEffectLedger,
+        is_recovery_replay: bool = False
     ) -> RollbackHazard:
         """
-        Validates whether re-executing an event during recovery presents a Rollback Hazard.
+        Validates whether executing or re-executing an event presents a Rollback Hazard.
         """
         if event.idempotency_key and ledger.is_idempotency_key_committed(event.idempotency_key):
             return RollbackHazard(
@@ -114,11 +115,11 @@ class RollbackGuard:
                 event_id=event.id,
                 tool_name=event.payload.get("tool_name", "unknown"),
                 idempotency_key=event.idempotency_key,
-                description=f"Action '{event.idempotency_key}' already committed in external ledger. Replay blocked.",
+                description=f"Action '{event.idempotency_key}' already committed in external ledger. Duplicate execution blocked.",
                 recommended_mode="REPAIR"
             )
 
-        if event.reversibility == ReversibilityType.IRREVERSIBLE:
+        if is_recovery_replay and event.reversibility == ReversibilityType.IRREVERSIBLE:
             return RollbackHazard(
                 hazard_detected=True,
                 event_id=event.id,
