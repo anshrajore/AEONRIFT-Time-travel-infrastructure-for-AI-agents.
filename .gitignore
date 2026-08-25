@@ -5,6 +5,7 @@ __pycache__/
 *.so
 .Python
 env/
+venv/
 build/
 develop-eggs/
 dist/
@@ -19,7 +20,6 @@ var/
 wheels/
 *.egg-info/
 .installed.cfg
-*.egg
 .pytest_cache/
 .coverage
 htmlcov/
@@ -48,9 +48,5 @@ Thumbs.db
 *.db
 *.sqlite
 *.log
-storage/snapshots/*
-!storage/snapshots/.gitkeep
-storage/event-log/*
-!storage/event-log/.gitkeep
-
-venv/
+storage/snapshots/*.tar.gz
+storage/event-log/*.jsonl
