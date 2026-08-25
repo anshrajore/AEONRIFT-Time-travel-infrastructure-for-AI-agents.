@@ -12,7 +12,7 @@ import time
 from typing import Dict, List, Optional
 from aeonrift.core.events import ExecutionEvent, EventType, EventSource
 from aeonrift.runtime.interceptor import AeonriftRuntime
-from services.recovery.planner import RecoveryPlanner, RecoveryPlan
+from planner import RecoveryPlanner, RecoveryPlan
 
 
 class ChaosFailureType(str, Enum):
