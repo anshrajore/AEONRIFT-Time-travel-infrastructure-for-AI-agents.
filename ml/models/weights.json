@@ -1,0 +1,17 @@
+{
+  "model_version": "1.0.0-rift-predict",
+  "training_sample_count": 100,
+  "class_distribution": {
+    "REPLAY": 22,
+    "REPAIR": 43,
+    "REPLAN": 35,
+    "COMPENSATE": 0
+  },
+  "average_recovery_cost": 0.2577,
+  "feature_weights": {
+    "auth_failure_replan_weight": 0.95,
+    "side_effect_repair_weight": 0.9,
+    "environment_drift_threshold": 0.5,
+    "checkpoint_skip_threshold": 0.2
+  }
+}
