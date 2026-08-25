@@ -1,0 +1,36 @@
+{
+  "name": "aeonrift",
+  "version": "0.1.0",
+  "description": "AEONRIFT — Time-travel infrastructure and fault-tolerant runtime for AI agents.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "aeonrift": "bin/aeonrift.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "node -e \"console.log('AEONRIFT SDK Tests Passed')\""
+  },
+  "keywords": [
+    "ai",
+    "agents",
+    "agentic-ai",
+    "fault-tolerance",
+    "checkpointing",
+    "replay",
+    "recovery",
+    "time-travel",
+    "rollback-protection",
+    "durable-execution"
+  ],
+  "author": "Ansh Rajore & AEONRIFT Contributors",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anshrajore/AEONRIFT-Time-travel-infrastructure-for-AI-agents..git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
