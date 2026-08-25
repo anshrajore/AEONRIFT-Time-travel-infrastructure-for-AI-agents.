@@ -1,3 +1,5 @@
+<div align="center">
+
 # AEONRIFT (⚡️🌌)
 
 > **Autonomous Execution Orchestration, Recovery, Replay & Incident Fault-Tolerance**
@@ -8,174 +10,219 @@
 
 ---
 
+[![Created by Ansh Rajore](https://img.shields.io/badge/Creator-Ansh%20Rajore-black.svg?style=for-the-badge&logo=github)](https://github.com/anshrajore)
 [![License](https://img.shields.io/badge/License-Apache_2.0-000000.svg?style=for-the-badge)](LICENSE)
 [![NPM Version](https://img.shields.io/badge/NPM-v0.1.0-black.svg?style=for-the-badge&logo=npm)](packages/sdk/ts)
 [![Python](https://img.shields.io/badge/Python-3.11+-black.svg?style=for-the-badge&logo=python)](packages/core)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-black.svg?style=for-the-badge&logo=typescript)](packages/sdk/ts)
-[![Tests](https://img.shields.io/badge/Tests-17%20passed-black.svg?style=for-the-badge)](tests/unit)
+[![Build Status](https://img.shields.io/badge/Tests-17%20passed-black.svg?style=for-the-badge)](tests/unit)
+
+</div>
 
 ---
 
-## 🏛️ System Architecture
+## 👨‍💻 Creator & Author Attribution
+
+**AEONRIFT** was designed, architected, and created by **Ansh Rajore** ([@anshrajore](https://github.com/anshrajore)) as open-source AI infrastructure to solve critical vulnerabilities in long-horizon autonomous agent execution.
+
+> *"Naive checkpoint restore creates semantic rollback attacks; naive retries duplicate external side-effects. AEONRIFT brings causal time-travel durability to AI agent runtimes."* — **Ansh Rajore**
+
+---
+
+## 🏛️ System Architecture (Strict Black & White Vector Diagram)
 
 <div align="center">
-  <svg width="850" height="420" viewBox="0 0 850 420" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <!-- Background -->
-    <rect width="850" height="420" rx="12" fill="#0A0A0A" stroke="#262626" stroke-width="2"/>
+  <svg width="850" height="460" viewBox="0 0 850 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Pure Black Background -->
+    <rect width="850" height="460" rx="10" fill="#000000" stroke="#FFFFFF" stroke-width="2"/>
     
-    <!-- Title Header -->
-    <text x="425" y="40" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="1.5">AEONRIFT CAUSAL RECOVERY ARCHITECTURE</text>
-    
-    <!-- Outer Box: Agent -->
-    <rect x="50" y="70" width="750" height="50" rx="6" fill="#141414" stroke="#404040" stroke-width="1.5"/>
-    <text x="425" y="100" fill="#E5E5E5" font-family="monospace" font-size="14" font-weight="600" text-anchor="middle">AGENT EXECUTION LAYER (Python / TypeScript SDK)</text>
-    
-    <!-- Arrow Down -->
-    <path d="M 425 120 L 425 145" stroke="#E5E5E5" stroke-width="2" stroke-dasharray="4 4"/>
-    <polygon points="421,145 425,152 429,145" fill="#E5E5E5"/>
-    
-    <!-- Core Runtime Container -->
-    <rect x="50" y="155" width="750" height="150" rx="8" fill="#171717" stroke="#525252" stroke-width="1.5"/>
-    <text x="70" y="180" fill="#A3A3A3" font-family="sans-serif" font-size="11" font-weight="700" letter-spacing="1">AEONRIFT FAULT-TOLERANT RUNTIME</text>
+    <!-- Title -->
+    <text x="425" y="42" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, monospace" font-size="16" font-weight="800" text-anchor="middle" letter-spacing="2">AEONRIFT CAUSAL RECOVERY ARCHITECTURE</text>
+    <line x1="50" y1="58" x2="800" y2="58" stroke="#FFFFFF" stroke-width="1" stroke-dasharray="2 2"/>
 
-    <!-- Subcomponents -->
-    <!-- Event Interceptor -->
-    <rect x="80" y="195" width="200" height="85" rx="6" fill="#0A0A0A" stroke="#404040" stroke-width="1.2"/>
-    <text x="180" y="225" fill="#FFFFFF" font-family="sans-serif" font-size="13" font-weight="600" text-anchor="middle">Event Interceptor</text>
-    <text x="180" y="250" fill="#737373" font-family="monospace" font-size="11" text-anchor="middle">Causal Hashing & Log</text>
+    <!-- Agent Layer -->
+    <rect x="70" y="75" width="710" height="45" rx="4" fill="#000000" stroke="#FFFFFF" stroke-width="1.5"/>
+    <text x="425" y="103" fill="#FFFFFF" font-family="monospace" font-size="13" font-weight="700" text-anchor="middle">AGENTS & WORKFLOWS (Python SDK / TypeScript NPM Package)</text>
 
-    <!-- Side Effect Ledger -->
-    <rect x="325" y="195" width="200" height="85" rx="6" fill="#0A0A0A" stroke="#FFFFFF" stroke-width="1.5"/>
-    <text x="425" y="225" fill="#FFFFFF" font-family="sans-serif" font-size="13" font-weight="700" text-anchor="middle">Side-Effect Ledger</text>
-    <text x="425" y="250" fill="#A3A3A3" font-family="monospace" font-size="11" text-anchor="middle">Rollback Protection</text>
+    <!-- Connector Arrow -->
+    <path d="M 425 120 L 425 145" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="4 4"/>
+    <polygon points="421,145 425,152 429,145" fill="#FFFFFF"/>
 
-    <!-- Checkpoint Engine -->
-    <rect x="570" y="195" width="200" height="85" rx="6" fill="#0A0A0A" stroke="#404040" stroke-width="1.2"/>
-    <text x="670" y="225" fill="#FFFFFF" font-family="sans-serif" font-size="13" font-weight="600" text-anchor="middle">Layered Checkpoints</text>
-    <text x="670" y="250" fill="#737373" font-family="monospace" font-size="11" text-anchor="middle">Levels L0 — L5</text>
+    <!-- Runtime Container -->
+    <rect x="70" y="155" width="710" height="170" rx="6" fill="#000000" stroke="#FFFFFF" stroke-width="2"/>
+    <text x="90" y="180" fill="#FFFFFF" font-family="sans-serif" font-size="11" font-weight="800" letter-spacing="1.5">AEONRIFT RUNTIME OBSERVATION LAYER</text>
 
-    <!-- Arrow Down to Planner -->
-    <path d="M 425 305 L 425 330" stroke="#E5E5E5" stroke-width="2"/>
-    <polygon points="421,330 425,337 429,330" fill="#E5E5E5"/>
+    <!-- Box 1: Event Interceptor -->
+    <rect x="95" y="195" width="185" height="105" rx="4" fill="#000000" stroke="#FFFFFF" stroke-width="1.2"/>
+    <text x="187" y="225" fill="#FFFFFF" font-family="sans-serif" font-size="13" font-weight="700" text-anchor="middle">Event Interceptor</text>
+    <line x1="115" y1="235" x2="260" y2="235" stroke="#FFFFFF" stroke-width="0.8"/>
+    <text x="187" y="255" fill="#FFFFFF" font-family="monospace" font-size="10" text-anchor="middle">Causal Hashing</text>
+    <text x="187" y="275" fill="#FFFFFF" font-family="monospace" font-size="10" text-anchor="middle">State Delta Tracking</text>
 
-    <!-- Bottom Recovery Planner -->
-    <rect x="50" y="340" width="750" height="55" rx="6" fill="#262626" stroke="#737373" stroke-width="1.5"/>
-    <text x="425" y="365" fill="#FFFFFF" font-family="sans-serif" font-size="14" font-weight="700" text-anchor="middle">RIFT RECOVERY PLANNER ENGINE</text>
-    <text x="425" y="383" fill="#D4D4D4" font-family="monospace" font-size="11" text-anchor="middle">[ REPLAY | REPAIR | REPLAN | COMPENSATE ]</text>
+    <!-- Box 2: Side-Effect Ledger -->
+    <rect x="332" y="195" width="185" height="105" rx="4" fill="#FFFFFF" stroke="#000000" stroke-width="1.5"/>
+    <text x="425" y="225" fill="#000000" font-family="sans-serif" font-size="13" font-weight="800" text-anchor="middle">Side-Effect Ledger</text>
+    <line x1="352" y1="235" x2="498" y2="235" stroke="#000000" stroke-width="0.8"/>
+    <text x="425" y="255" fill="#000000" font-family="monospace" font-size="10" font-weight="700" text-anchor="middle">Idempotency Manager</text>
+    <text x="425" y="275" fill="#000000" font-family="monospace" font-size="10" font-weight="700" text-anchor="middle">Rollback Guard</text>
+
+    <!-- Box 3: Layered Checkpoint Engine -->
+    <rect x="570" y="195" width="185" height="105" rx="4" fill="#000000" stroke="#FFFFFF" stroke-width="1.2"/>
+    <text x="662" y="225" fill="#FFFFFF" font-family="sans-serif" font-size="13" font-weight="700" text-anchor="middle">Layered Engine</text>
+    <line x1="590" y1="235" x2="735" y2="235" stroke="#FFFFFF" stroke-width="0.8"/>
+    <text x="662" y="255" fill="#FFFFFF" font-family="monospace" font-size="10" text-anchor="middle">Semantic Filter</text>
+    <text x="662" y="275" fill="#FFFFFF" font-family="monospace" font-size="10" text-anchor="middle">Levels L0 — L5</text>
+
+    <!-- Connector Arrow -->
+    <path d="M 425 325 L 425 350" stroke="#FFFFFF" stroke-width="1.5"/>
+    <polygon points="421,350 425,357 429,350" fill="#FFFFFF"/>
+
+    <!-- Bottom: Recovery Engine -->
+    <rect x="70" y="360" width="710" height="65" rx="4" fill="#000000" stroke="#FFFFFF" stroke-width="2"/>
+    <text x="425" y="388" fill="#FFFFFF" font-family="sans-serif" font-size="14" font-weight="800" text-anchor="middle">RIFT RECOVERY PLANNER ENGINE</text>
+    <text x="425" y="408" fill="#FFFFFF" font-family="monospace" font-size="11" text-anchor="middle">[ REPLAY | REPAIR | REPLAN | COMPENSATE ]</text>
   </svg>
 </div>
 
 ---
 
-## ⚡️ Key Features
+## 💡 Why AEONRIFT? (The Problem & Research Rationale)
 
-1. **Causal State Graph**: Maps causal linkages across LLM decisions, OS file system mutations, subprocess invocations, and external API calls.
-2. **Side-Effect Ledger & Rollback Protection (ACRFence 2026)**: Defends against duplicate execution of non-idempotent operations (Stripe payments, emails, cloud deployments).
-3. **Semantic & Multi-Level Checkpointing L0–L5 (Crab 2026)**:
-   - `L0`: Logical agent state & conversation history
-   - `L1`: Memory variables & state
-   - `L2`: Filesystem deltas
-   - `L3`: Process state
-   - `L4`: Container / microVM snapshot
-   - `L5`: External state & resource IDs
-4. **Adaptive Recovery Modes**:
-   - `REPLAY`: Deterministically re-execute safe, idempotent steps.
-   - `REPAIR`: Splice trajectory, skip/modify invalid steps, and reuse verified prefixes.
-   - `REPLAN`: Inject updated context into agent when environment diverges significantly.
-   - `COMPENSATE`: Execute inverse actions for unrollbackable side effects.
-5. **State Reconciliation Engine**: Validates environment drift (Node/Python versions, active API tokens, modified files) prior to resuming execution.
-6. **Time-Travel Debugger UI & CLI**: Full command-line and visual inspection of execution trees, DAGs, state diffs, and branch trajectories.
-7. **RIFT CHAOS Testing & RIFT-Bench**: Fault injection benchmarking measuring Recovery Efficiency (RE) and Zero-Duplicate Side Effect guarantees.
-8. **Cryptographic Integrity**: HMAC-SHA256 checkpoint signatures and automatic secret scrubbing.
+Existing agent recovery mechanisms rely on naive, broken strategies:
+
+1. **Blind Retry**: Restarts the agent loop from scratch upon exceptions.
+2. **Unaware Checkpoint/Restore**: Restores in-memory process or container state without accounting for external side effects or environment changes.
+
+### The Vulnerability: Semantic Rollback Attacks (ACRFence, 2026)
+Consider an autonomous coding or purchasing agent performing a 7-step task:
+
+$$\text{Step 1 (Read Config)} \rightarrow \text{Step 2 (Update Code)} \rightarrow \dots \rightarrow \text{Step 6 (Stripe Payment API)} \rightarrow \text{Step 7 (Deploy)} \rightarrow \text{CRASH!}$$
+
+If a traditional checkpoint engine blindly restores state at Step 5 and replays the trajectory, **Step 6 (Stripe Payment) will be re-executed**, resulting in duplicate charges or resurrected credentials. This flaw is defined as a **Semantic Rollback Attack** (*ACRFence, 2026*).
+
+### Wasteful Checkpointing (Crab, 2026)
+Crab (2026) demonstrates that **over 75% of agent turns produce no recovery-relevant state change** (e.g. conversational LLM turns or read-only file inspections). Checkpointing every turn wastes massive storage and I/O.
+
+### Verified-Prefix Replay (RePoT, 2026)
+RePoT (2026) proves that crashed agent trajectories can be repaired from verified prefixes rather than restarted.
+
+### AEONRIFT Solution: Causal State Recovery
+AEONRIFT models agent intent, OS state deltas, tool side effects, and external environment mutations inside a unified **Causal State Graph**. It guarantees:
+- **Zero Duplicate Side Effects**: Non-idempotent side effects are blocked or compensated upon restore.
+- **Minimal Checkpointing (L0–L5)**: Only recovery-relevant mutations trigger snapshots.
+- **Adaptive Recovery Modes**: Automatically selects between `REPLAY`, `REPAIR`, `REPLAN`, and `COMPENSATE`.
 
 ---
 
-## 📦 Installation & NPM Package
+## 📦 Installation & Setup
 
-### Node.js / NPM
+### TypeScript / Node.js Package (NPM)
 
 ```bash
-# Install AEONRIFT SDK in your Node project
+# Install AEONRIFT SDK in your project
 npm install aeonrift
 
-# Run CLI diagnostic doctor via npx
+# Verify installation with Node CLI
 npx aeonrift doctor
 ```
 
-### Python / CLI
+### Python Package & CLI
 
 ```bash
-# Install AEONRIFT Python package & CLI
+# Install AEONRIFT core runtime and CLI
 pip install aeonrift-cli
 
-# Run system health check
+# Run system diagnostic doctor
 aeonrift doctor
 ```
 
 ---
 
-## 💻 Code Examples
+## 🛠️ Step-by-Step Implementation Guide
 
-### TypeScript / Node.js
+### 1. TypeScript / Node.js Implementation
 
 ```typescript
 import { AeonriftClient, SideEffectType, ReversibilityType } from "aeonrift";
 
+// Initialize runtime observer
 const runtime = new AeonriftClient("coding_agent_01", "exec_8219");
 
-// Intercept non-idempotent API payment call
-const payment = await runtime.interceptTool(
-  "stripe.create_payment",
-  async (args) => {
-    return await stripe.charges.create(args);
-  },
-  { orderId: "order_991", amount: 250 },
-  {
-    sideEffectType: SideEffectType.MUTATING_IRREVERSIBLE,
-    reversibility: ReversibilityType.IRREVERSIBLE,
-    idempotencyKey: "aeonrift:agent_01:order_991:payment"
-  }
-);
+// Intercept tool call with side-effect tracking and rollback protection
+async function executePayment() {
+  const result = await runtime.interceptTool(
+    "stripe.create_payment",
+    async (args) => {
+      // Your actual tool or API invocation
+      return { status: "PAID", txId: "tx_9941" };
+    },
+    { orderId: "order_991", amount: 250 },
+    {
+      sideEffectType: SideEffectType.MUTATING_IRREVERSIBLE,
+      reversibility: ReversibilityType.IRREVERSIBLE,
+      idempotencyKey: "aeonrift:coding_agent_01:exec_8219:order_991"
+    }
+  );
+
+  console.log("Payment Result:", result);
+}
+
+executePayment().catch(console.error);
 ```
 
-### Python
+---
+
+### 2. Python Implementation
 
 ```python
 from aeonrift.runtime.interceptor import AeonriftRuntime
 from aeonrift.core.events import SideEffectType, ReversibilityType
 
-runtime = AeonriftRuntime(agent_id="coding_agent_01", execution_id="exec_8219")
-
-def create_payment(order_id: str, amount: int):
-    return {"status": "COMMITTED", "tx_id": "tx_stripe_9941"}
-
-payment_res = runtime.intercept_tool(
-    tool_name="stripe.create_payment",
-    tool_func=create_payment,
-    tool_kwargs={"order_id": "order_991", "amount": 250},
-    side_effect_type=SideEffectType.MUTATING_IRREVERSIBLE,
-    reversibility=ReversibilityType.IRREVERSIBLE
+# Initialize AEONRIFT execution runtime
+runtime = AeonriftRuntime(
+    agent_id="coding_agent_01",
+    execution_id="exec_8219",
+    storage_dir=".aeonrift/event_store"
 )
+
+# Define tool function
+def update_package_json(path: str):
+    with open(path, "w") as f:
+        f.write('{"name": "my-app", "version": "1.0.1"}')
+    return "Updated package.json"
+
+# Intercept tool call with L2 Filesystem checkpointing
+result = runtime.intercept_tool(
+    tool_name="write_file",
+    tool_func=update_package_json,
+    tool_kwargs={"path": "package.json"},
+    side_effect_type=SideEffectType.MUTATING_REVERSIBLE,
+    reversibility=ReversibilityType.REVERSIBLE
+)
+
+print("Tool Result:", result)
 ```
 
 ---
 
-## 🛠️ Advanced CLI Usage
+## ⚡️ Complete CLI Command Reference
+
+AEONRIFT provides an advanced CLI interface for time-travel debugging, model training, chaos injection, benchmarking, and state diffing:
 
 ```bash
-# 1. Initialize AEONRIFT in a target workspace
+# 1. Initialize AEONRIFT directory in project
 aeonrift init
 
-# 2. Inspect execution timeline
+# 2. Inspect execution timeline and checkpoints
 aeonrift timeline exec_8219
 
 # 3. Recover a crashed execution safely
 aeonrift recover exec_8219
 
-# 4. Train RIFT-Predict ML Recovery Policy
+# 4. Train RIFT-Predict ML Recovery Policy on RIFT-FAIL dataset
 aeonrift train --samples 1000 --output ml/models/weights.json
 
-# 5. Run RIFT-CHAOS Fault Injection Suite
+# 5. Run RIFT-CHAOS Fault Injection Suite (LLM timeouts, process kills, network partitions)
 aeonrift chaos
 
 # 6. Run RIFT-Bench Evaluation Suite
@@ -183,40 +230,28 @@ aeonrift benchmark
 
 # 7. Render Terminal State Diff between Checkpoints
 aeonrift diff cp_001 cp_002
+
+# 8. Run system health check
+aeonrift doctor
 ```
 
 ---
 
-## 🗺️ Roadmap & Implementation Status
+## 🧪 Benchmark Metrics (RIFT-Bench)
 
-- [x] **Phase 0**: Project Specification & Folder Architecture
-- [x] **Phase 1**: Core Event & State Delta Model (`packages/core`)
-- [x] **Phase 2**: Append-Only Event Store & Causal Log (`storage/event-log`)
-- [x] **Phase 3**: Runtime Interception & Observer (`packages/runtime`)
-- [x] **Phase 4**: Layered Checkpoint Engine L0–L5 (`services/checkpoint`)
-- [x] **Phase 5**: Deterministic Execution Replay Engine (`services/replay`)
-- [x] **Phase 6**: External Side-Effect Ledger & Idempotency Key Manager (`packages/core/ledger.py`)
-- [x] **Phase 7**: Semantic Rollback Protection (`packages/core/policy.py`)
-- [x] **Phase 8**: Failure Diagnostic & Classifier (`services/recovery/planner.py`)
-- [x] **Phase 9**: Replay / Repair / Replan Recovery Planner (`services/recovery/planner.py`)
-- [x] **Phase 10**: State & Environment Reconciliation (`services/state`)
-- [x] **Phase 11**: Recovery Validator (`services/recovery/validator.py`)
-- [x] **Phase 12**: AEONRIFT Developer CLI (`packages/cli`)
-- [x] **Phase 13**: Time-Travel Debugger UI & Visual DAG (`apps/dashboard`)
-- [x] **Phase 14**: Chaos Testing & Failure Injector (`tests/chaos`)
-- [x] **Phase 15**: RIFT-Bench Evaluation Suite (`benchmarks`)
-- [x] **Phase 16**: ML Policy & Learning-to-Recover (`ml`)
-- [x] **Phase 17**: Distributed Fleet & Multi-Agent Recovery (`services/coordinator`)
-- [x] **Phase 18**: Security Hardening & Tamper-Evident Signatures (`services/checkpoint/security.py`)
+AEONRIFT evaluates recovery performance against standard durable execution engines using three research metrics:
+
+1. **Recovery Efficiency (RE)**:
+   $$\text{RE} = \frac{\text{Useful Work Preserved}}{\text{Recovery Cost}}$$
+
+2. **Recovery Overhead**:
+   $$\text{Recovery Overhead} = \frac{\text{Checkpoint} + \text{Replay} + \text{Diagnosis}}{\text{Fault-Free Execution}}$$
+
+3. **Recovery Correctness**:
+   $$\text{Recovery Correctness} = \frac{\text{Safe Recoveries}}{\text{Total Recovery Attempts}}$$
 
 ---
 
-## 🤝 Contributing
+## 📜 License & Credits
 
-Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) and our [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) before submitting Pull Requests.
-
----
-
-## 🛡️ License
-
-AEONRIFT is licensed under the [Apache 2.0 License](LICENSE).
+AEONRIFT is created and authored by **Ansh Rajore** ([@anshrajore](https://github.com/anshrajore)) and licensed under the [Apache 2.0 License](LICENSE).
