@@ -945,6 +945,34 @@
     }
     .dev-spec-title { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
     .dev-spec-desc { font-size: 13.5px; color: var(--muted); line-height: 1.65; }
+
+    /* CLI Guide Section */
+    .cli-guide-section { border-bottom: 1.5px solid var(--black); background: var(--black); }
+    .cli-guide-header { padding: 40px; border-bottom: 1.5px solid rgba(255,255,255,0.08); display: flex; align-items: flex-end; justify-content: space-between; }
+    .cli-guide-title { font-family: var(--serif); font-style: italic; font-size: clamp(36px, 5vw, 64px); font-weight: 700; line-height: 1; letter-spacing: -1px; color: var(--white); }
+    .os-tab-bar { display: flex; border-bottom: 1.5px solid rgba(255,255,255,0.08); padding: 0 40px; }
+    .os-tab { background: transparent; border: none; border-bottom: 2.5px solid transparent; color: rgba(255,255,255,0.35); font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 16px 24px; cursor: pointer; transition: all 0.15s; display: flex; align-items: center; gap: 8px; }
+    .os-tab:hover { color: var(--white); }
+    .os-tab.active { color: var(--neon); border-bottom-color: var(--neon); }
+    .os-tab-icon { font-size: 14px; }
+    .os-panels {}
+    .os-panel { display: none; padding: 40px; }
+    .os-panel.active { display: block; }
+    .os-panel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .os-install-label { font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 14px; }
+    .cmd-ref-section { border-top: 1.5px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); }
+    .cmd-ref-header { padding: 32px 40px 24px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .cmd-ref-title { font-size: 14px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+    .cmd-ref-grid { display: flex; flex-direction: column; }
+    .cmd-ref-row { display: grid; grid-template-columns: 140px 1fr 1fr; gap: 16px; padding: 14px 40px; border-bottom: 1px solid rgba(255,255,255,0.04); align-items: center; }
+    .cmd-ref-row:hover { background: rgba(255,255,255,0.03); }
+    .cmd-ref-row-head { padding: 10px 40px; background: rgba(0,0,0,0.3); border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .cmd-ref-row-head .cmd-ref-col { font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.2); }
+    .cmd-ref-usage code { font-family: var(--mono); font-size: 12px; color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.05); padding: 3px 8px; }
+    .cmd-ref-what { font-size: 13px; color: rgba(255,255,255,0.35); line-height: 1.5; }
+    .cmd-pill { display: inline-block; padding: 4px 10px; font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; border: 1.5px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.6); }
+    .cmd-pill-neon { border-color: rgba(189,255,0,0.35); color: var(--neon); background: rgba(189,255,0,0.06); }
+
     .cta-section {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -1534,54 +1562,274 @@
   </div>
 </div>
 
-<!-- ─── CLI SECTION ───────────────────────────────────── -->
-<div class="cli-section" id="cli">
-  <div class="cli-info-col">
-    <div class="cli-section-num">SECTION 06 — CLI</div>
-    <h2 class="cli-heading r">One install.<br/>Eight commands.</h2>
-    <p class="cli-sub r">Install via pip or npm. The same CLI whether you build in Python or TypeScript.</p>
-    <div class="cli-cmd-list r">
-      <div class="cli-cmd-item"><span class="cli-cmd-name">init</span><span class="cli-cmd-desc">Initialize a new AEONRIFT project</span></div>
-      <div class="cli-cmd-item"><span class="cli-cmd-name">timeline</span><span class="cli-cmd-desc">Inspect execution event timeline</span></div>
-      <div class="cli-cmd-item"><span class="cli-cmd-name">recover</span><span class="cli-cmd-desc">Trigger manual recovery for an execution</span></div>
-      <div class="cli-cmd-item"><span class="cli-cmd-name">chaos</span><span class="cli-cmd-desc">Run failure injection experiments</span></div>
-      <div class="cli-cmd-item"><span class="cli-cmd-name">benchmark</span><span class="cli-cmd-desc">Run RIFT-Bench evaluation suite</span></div>
-      <div class="cli-cmd-item"><span class="cli-cmd-name">diff</span><span class="cli-cmd-desc">Compare state between two checkpoints</span></div>
-      <div class="cli-cmd-item"><span class="cli-cmd-name">train</span><span class="cli-cmd-desc">Train ML predictive policy models</span></div>
-      <div class="cli-cmd-item"><span class="cli-cmd-name">doctor</span><span class="cli-cmd-desc">Diagnose environment configuration</span></div>
+<!-- ─── CLI GUIDE SECTION ─────────────────────────────── -->
+<div class="cli-guide-section" id="cli">
+  <!-- Header -->
+  <div class="cli-guide-header">
+    <div>
+      <div class="num-label">SECTION 06 — CLI GUIDE</div>
+      <h2 class="cli-guide-title r">Install & Use<br/>on Any OS</h2>
+    </div>
+    <span class="tag r">macOS · Linux · Windows</span>
+  </div>
+
+  <!-- OS Tab Switcher -->
+  <div class="os-tab-bar">
+    <button class="os-tab active" onclick="switchOS('mac', this)">
+      <span class="os-tab-icon">🍎</span> macOS
+    </button>
+    <button class="os-tab" onclick="switchOS('linux', this)">
+      <span class="os-tab-icon">🐧</span> Linux
+    </button>
+    <button class="os-tab" onclick="switchOS('win', this)">
+      <span class="os-tab-icon">🪟</span> Windows
+    </button>
+  </div>
+
+  <!-- Install Panels -->
+  <div class="os-panels">
+    <!-- macOS -->
+    <div class="os-panel active" id="panel-mac">
+      <div class="os-panel-grid">
+        <div class="os-install-col">
+          <div class="os-install-label">Step 1 — Clone the repository</div>
+          <div class="terminal-win" style="margin-bottom:16px">
+            <div class="terminal-bar">
+              <div class="t-dot t-red"></div><div class="t-dot t-yellow"></div><div class="t-dot t-green"></div>
+              <div class="t-title">zsh — macOS</div>
+            </div>
+            <div class="terminal-body" style="padding:20px 24px;line-height:1.9">
+              <div><span class="t-comment"># Clone AEONRIFT repository</span></div>
+              <div><span class="t-prompt">$ </span><span class="t-cmd">git</span> <span class="t-flag">clone</span> <span class="t-arg">https://github.com/anshrajore/AEONRIFT-Time-travel-infrastructure-for-AI-agents..git</span></div>
+              <div><span class="t-prompt">$ </span><span class="t-cmd">cd</span> <span class="t-arg">AEONRIFT-Time-travel-infrastructure-for-AI-agents.</span></div>
+              <br/>
+              <div><span class="t-comment"># Run CLI directly (no pip install needed)</span></div>
+              <div><span class="t-prompt">$ </span><span class="t-cmd">python3</span> <span class="t-flag">./aeonrift</span> <span class="t-arg">doctor</span></div>
+              <div><span class="t-ok">🩺 System healthy and ready for autonomous fault-tolerance!</span></div>
+              <br/>
+              <div><span class="t-comment"># Or install Python wheel globally</span></div>
+              <div><span class="t-prompt">$ </span><span class="t-cmd">pip3</span> <span class="t-flag">install</span> <span class="t-arg">dist/aeonrift-0.1.0-py3-none-any.whl</span></div>
+              <div><span class="t-ok">✓ Successfully installed aeonrift-0.1.0</span></div>
+              <br/>
+              <div><span class="t-comment"># Or TypeScript/Node.js SDK via npm</span></div>
+              <div><span class="t-prompt">$ </span><span class="t-cmd">npm</span> <span class="t-flag">install</span> <span class="t-arg">aeonrift</span></div>
+              <div><span class="t-prompt">$ </span><span class="cursor"></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="os-cmd-col">
+          <div class="os-install-label">Step 2 — Verify installation</div>
+          <div class="terminal-win">
+            <div class="terminal-bar">
+              <div class="t-dot t-red"></div><div class="t-dot t-yellow"></div><div class="t-dot t-green"></div>
+              <div class="t-title">zsh — macOS Doctor output</div>
+            </div>
+            <div class="terminal-body" style="padding:20px 24px;line-height:1.9">
+              <div><span class="t-prompt">$ </span><span class="t-cmd">python3</span> <span class="t-arg">./aeonrift version</span></div>
+              <div><span class="t-ok">AEONRIFT Time-Travel Engine v0.1.0</span></div>
+              <div><span class="t-out">  Author:         Ansh Rajore</span></div>
+              <div><span class="t-out">  OS Platform:    Darwin 25.5.0</span></div>
+              <div><span class="t-out">  Architecture:   arm64</span></div>
+              <br/>
+              <div><span class="t-prompt">$ </span><span class="t-cmd">python3</span> <span class="t-arg">./aeonrift doctor</span></div>
+              <div><span class="t-ok">  ✓ Python runtime version &gt;= 3.8: OK (3.9.6)</span></div>
+              <div><span class="t-ok">  ✓ Core event model &amp; Causal State Graph: Operational</span></div>
+              <div><span class="t-ok">  ✓ Side-effect ledger &amp; Rollback guard: Active</span></div>
+              <div><span class="t-ok">  ✓ Checkpoint Engine (L0-L5): Ready</span></div>
+              <div><span class="t-ok">  ✓ ML Recovery Policy: Trained</span></div>
+              <div><span class="t-prompt">$ </span><span class="cursor"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Linux -->
+    <div class="os-panel" id="panel-linux">
+      <div class="os-panel-grid">
+        <div class="os-install-col">
+          <div class="os-install-label">Step 1 — Clone & setup (Ubuntu / Debian / Arch)</div>
+          <div class="terminal-win" style="margin-bottom:16px">
+            <div class="terminal-bar">
+              <div class="t-dot t-red"></div><div class="t-dot t-yellow"></div><div class="t-dot t-green"></div>
+              <div class="t-title">bash — Linux</div>
+            </div>
+            <div class="terminal-body" style="padding:20px 24px;line-height:1.9">
+              <div><span class="t-comment"># Clone AEONRIFT</span></div>
+              <div><span class="t-prompt">$ </span><span class="t-cmd">git</span> <span class="t-flag">clone</span> <span class="t-arg">https://github.com/anshrajore/AEONRIFT-Time-travel-infrastructure-for-AI-agents..git</span></div>
+              <div><span class="t-prompt">$ </span><span class="t-cmd">cd</span> <span class="t-arg">AEONRIFT-Time-travel-infrastructure-for-AI-agents.</span></div>
+              <br/>
+              <div><span class="t-comment"># Make CLI executable and run</span></div>
+              <div><span class="t-prompt">$ </span><span class="t-cmd">chmod</span> <span class="t-flag">+x</span> <span class="t-arg">./aeonrift</span></div>
+              <div><span class="t-prompt">$ </span><span class="t-cmd">python3</span> <span class="t-flag">./aeonrift</span> <span class="t-arg">doctor</span></div>
+              <div><span class="t-ok">🩺 System healthy and ready for autonomous fault-tolerance!</span></div>
+              <br/>
+              <div><span class="t-comment"># Install wheel to system Python</span></div>
+              <div><span class="t-prompt">$ </span><span class="t-cmd">pip3</span> <span class="t-flag">install --user</span> <span class="t-arg">dist/aeonrift-0.1.0-py3-none-any.whl</span></div>
+              <div><span class="t-ok">✓ Successfully installed aeonrift-0.1.0</span></div>
+              <br/>
+              <div><span class="t-comment"># Or npm (requires Node.js 18+)</span></div>
+              <div><span class="t-prompt">$ </span><span class="t-cmd">npm</span> <span class="t-flag">install</span> <span class="t-arg">aeonrift</span></div>
+              <div><span class="t-prompt">$ </span><span class="cursor"></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="os-cmd-col">
+          <div class="os-install-label">Step 2 — Verify &amp; run benchmark</div>
+          <div class="terminal-win">
+            <div class="terminal-bar">
+              <div class="t-dot t-red"></div><div class="t-dot t-yellow"></div><div class="t-dot t-green"></div>
+              <div class="t-title">bash — Linux benchmark output</div>
+            </div>
+            <div class="terminal-body" style="padding:20px 24px;line-height:1.9">
+              <div><span class="t-prompt">$ </span><span class="t-cmd">python3</span> <span class="t-arg">./aeonrift version</span></div>
+              <div><span class="t-ok">AEONRIFT Time-Travel Engine v0.1.0</span></div>
+              <div><span class="t-out">  OS Platform:    Linux 6.8.0</span></div>
+              <div><span class="t-out">  Architecture:   x86_64</span></div>
+              <br/>
+              <div><span class="t-prompt">$ </span><span class="t-cmd">python3</span> <span class="t-arg">./aeonrift benchmark</span></div>
+              <div><span class="t-out">══════════════════════════════════════</span></div>
+              <div><span class="t-out">        RIFT-BENCH EVALUATION         </span></div>
+              <div><span class="t-out">══════════════════════════════════════</span></div>
+              <div><span class="t-ok">  Coding Agent     | RE: 2.62 | 4.2%</span></div>
+              <div><span class="t-ok">  Browser Agent    | RE: 2.88 | 3.2%</span></div>
+              <div><span class="t-ok">  DevOps Agent     | RE: 3.22 | 3.5%</span></div>
+              <div><span class="t-prompt">$ </span><span class="cursor"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Windows -->
+    <div class="os-panel" id="panel-win">
+      <div class="os-panel-grid">
+        <div class="os-install-col">
+          <div class="os-install-label">Step 1 — Clone &amp; run (CMD / PowerShell)</div>
+          <div class="terminal-win" style="margin-bottom:16px;background:#0c0c0c">
+            <div class="terminal-bar" style="background:#1a1a2e">
+              <div class="t-dot" style="background:#555;width:10px;height:10px;border-radius:0"></div>
+              <div class="t-dot" style="background:#555;width:10px;height:10px;border-radius:0"></div>
+              <div class="t-dot" style="background:#555;width:10px;height:10px;border-radius:0"></div>
+              <div class="t-title">cmd.exe — Windows</div>
+            </div>
+            <div class="terminal-body" style="padding:20px 24px;line-height:1.9">
+              <div><span class="t-comment">REM Clone AEONRIFT (Git Bash / PowerShell)</span></div>
+              <div><span class="t-prompt" style="color:#4ec9b0">C:\&gt; </span><span class="t-cmd">git</span> <span class="t-flag">clone</span> <span class="t-arg">https://github.com/anshrajore/AEONRIFT-Time-travel-infrastructure-for-AI-agents..git</span></div>
+              <div><span class="t-prompt" style="color:#4ec9b0">C:\&gt; </span><span class="t-cmd">cd</span> <span class="t-arg">AEONRIFT-Time-travel-infrastructure-for-AI-agents.</span></div>
+              <br/>
+              <div><span class="t-comment">REM Use included Windows CMD wrapper</span></div>
+              <div><span class="t-prompt" style="color:#4ec9b0">C:\&gt; </span><span class="t-cmd">aeonrift.cmd</span> <span class="t-arg">doctor</span></div>
+              <div><span class="t-ok">[DOC] Running AEONRIFT Diagnostic Doctor...</span></div>
+              <div><span class="t-ok">  [OK] Python runtime version &gt;= 3.8: OK</span></div>
+              <div><span class="t-ok">  [OK] Core event model: Operational</span></div>
+              <br/>
+              <div><span class="t-comment">REM Or use python directly</span></div>
+              <div><span class="t-prompt" style="color:#4ec9b0">C:\&gt; </span><span class="t-cmd">python</span> <span class="t-flag">./aeonrift</span> <span class="t-arg">version</span></div>
+              <div><span class="t-ok">AEONRIFT Time-Travel Engine v0.1.0</span></div>
+              <div><span class="t-prompt" style="color:#4ec9b0">C:\&gt; </span><span class="cursor"></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="os-cmd-col">
+          <div class="os-install-label">Step 2 — PowerShell example</div>
+          <div class="terminal-win" style="background:#012456">
+            <div class="terminal-bar" style="background:#013580">
+              <div class="t-dot" style="background:#555;width:10px;height:10px;border-radius:0"></div>
+              <div class="t-dot" style="background:#555;width:10px;height:10px;border-radius:0"></div>
+              <div class="t-dot" style="background:#555;width:10px;height:10px;border-radius:0"></div>
+              <div class="t-title">PowerShell — Windows</div>
+            </div>
+            <div class="terminal-body" style="padding:20px 24px;line-height:1.9">
+              <div><span class="t-comment"># PowerShell — all commands work identically</span></div>
+              <div><span class="t-prompt" style="color:#569cd6">PS&gt; </span><span class="t-cmd">python</span> <span class="t-arg">./aeonrift init --dir .\my-agent</span></div>
+              <div><span class="t-ok">[*] Initialized AEONRIFT in .\my-agent\.aeonrift</span></div>
+              <br/>
+              <div><span class="t-prompt" style="color:#569cd6">PS&gt; </span><span class="t-cmd">python</span> <span class="t-arg">./aeonrift export exec-123 --format json</span></div>
+              <div><span class="t-out">[{"id": "evt_exec-123_0001", "event_type":</span></div>
+              <div><span class="t-out">  "TOOL_CALL", "step_number": 1, ...}]</span></div>
+              <br/>
+              <div><span class="t-prompt" style="color:#569cd6">PS&gt; </span><span class="t-cmd">python</span> <span class="t-arg">./aeonrift benchmark</span></div>
+              <div><span class="t-ok">[OK] RIFT-BENCH suite completed</span></div>
+              <div><span class="t-prompt" style="color:#569cd6">PS&gt; </span><span class="cursor"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="cli-terminal-col">
-    <div class="terminal-win">
-      <div class="terminal-bar">
-        <div class="t-dot t-red"></div>
-        <div class="t-dot t-yellow"></div>
-        <div class="t-dot t-green"></div>
-        <div class="t-title">aeonrift — zsh</div>
+
+  <!-- All 12 Commands Reference Table -->
+  <div class="cmd-ref-section">
+    <div class="cmd-ref-header">
+      <div class="cmd-ref-title r">All 12 Commands — Full Reference</div>
+      <span class="tag">Works on macOS · Linux · Windows</span>
+    </div>
+    <div class="cmd-ref-grid">
+      <div class="cmd-ref-row cmd-ref-row-head">
+        <div class="cmd-ref-col cmd-ref-name">COMMAND</div>
+        <div class="cmd-ref-col cmd-ref-usage">USAGE</div>
+        <div class="cmd-ref-col cmd-ref-what">DESCRIPTION</div>
       </div>
-      <div class="terminal-body">
-        <div><span class="t-comment"># Install AEONRIFT</span></div>
-        <div><span class="t-prompt">$ </span><span class="t-cmd">pip install</span> <span class="t-arg">aeonrift-core aeonrift-runtime aeonrift-cli</span></div>
-        <div><span class="t-comment"># or via npm</span></div>
-        <div><span class="t-prompt">$ </span><span class="t-cmd">npm install</span> <span class="t-flag">-g</span> <span class="t-arg">aeonrift</span></div>
-        <br/>
-        <div><span class="t-comment"># Init project</span></div>
-        <div><span class="t-prompt">$ </span><span class="t-cmd">aeonrift</span> <span class="t-flag">init</span> <span class="t-arg">my-agent</span></div>
-        <div><span class="t-ok">✓ Initialized AEONRIFT project in ./my-agent</span></div>
-        <br/>
-        <div><span class="t-comment"># View timeline</span></div>
-        <div><span class="t-prompt">$ </span><span class="t-cmd">aeonrift</span> <span class="t-flag">timeline</span> <span class="t-arg">exec-abc-123</span></div>
-        <div><span class="t-info">  [T+0.000]  tool_call     fetch_data        reversible</span></div>
-        <div><span class="t-out">  [T+0.120]  side_effect   payment_api       IRREVERSIBLE</span></div>
-        <div><span class="t-out">  [T+0.121]  checkpoint    L3-snapshot       HMAC-OK</span></div>
-        <div><span class="t-err">  [T+3.200]  failure       LLM_TIMEOUT       CRITICAL</span></div>
-        <div><span class="t-ok">  [T+3.215]  recovery      REPLAY            conf=0.94</span></div>
-        <br/>
-        <div><span class="t-comment"># Chaos test</span></div>
-        <div><span class="t-prompt">$ </span><span class="t-cmd">aeonrift</span> <span class="t-flag">chaos</span> <span class="t-arg">--type NETWORK_LOSS --duration 5</span></div>
-        <div><span class="t-ok">✓ Chaos complete · recovery_rate=94.2% · overhead=12ms</span></div>
-        <br/>
-        <div><span class="t-prompt">$ </span><span class="cursor"></span></div>
+      <div class="cmd-ref-row r">
+        <div class="cmd-ref-col cmd-ref-name"><span class="cmd-pill cmd-pill-neon">init</span></div>
+        <div class="cmd-ref-col cmd-ref-usage"><code>aeonrift init --dir ./project</code></div>
+        <div class="cmd-ref-col cmd-ref-what">Initialize AEONRIFT directory structure in target project</div>
+      </div>
+      <div class="cmd-ref-row r">
+        <div class="cmd-ref-col cmd-ref-name"><span class="cmd-pill">timeline</span></div>
+        <div class="cmd-ref-col cmd-ref-usage"><code>aeonrift timeline exec-abc-123</code></div>
+        <div class="cmd-ref-col cmd-ref-what">Render causal event timeline for an agent execution</div>
+      </div>
+      <div class="cmd-ref-row r">
+        <div class="cmd-ref-col cmd-ref-name"><span class="cmd-pill">recover</span></div>
+        <div class="cmd-ref-col cmd-ref-usage"><code>aeonrift recover exec-abc-123</code></div>
+        <div class="cmd-ref-col cmd-ref-what">Analyze crashed execution and generate recovery plan</div>
+      </div>
+      <div class="cmd-ref-row r">
+        <div class="cmd-ref-col cmd-ref-name"><span class="cmd-pill cmd-pill-neon">gateway</span></div>
+        <div class="cmd-ref-col cmd-ref-usage"><code>aeonrift gateway --port 8000</code></div>
+        <div class="cmd-ref-col cmd-ref-what">Launch REST &amp; WebSockets Enterprise Gateway Server</div>
+      </div>
+      <div class="cmd-ref-row r">
+        <div class="cmd-ref-col cmd-ref-name"><span class="cmd-pill cmd-pill-neon">export</span></div>
+        <div class="cmd-ref-col cmd-ref-usage"><code>aeonrift export exec-id --format dot --output graph.dot</code></div>
+        <div class="cmd-ref-col cmd-ref-what">Export causal graph as JSON or Graphviz DOT format</div>
+      </div>
+      <div class="cmd-ref-row r">
+        <div class="cmd-ref-col cmd-ref-name"><span class="cmd-pill cmd-pill-neon">replay</span></div>
+        <div class="cmd-ref-col cmd-ref-usage"><code>aeonrift replay exec-abc-123</code></div>
+        <div class="cmd-ref-col cmd-ref-what">Interactive step-by-step CLI time-travel replay runner</div>
+      </div>
+      <div class="cmd-ref-row r">
+        <div class="cmd-ref-col cmd-ref-name"><span class="cmd-pill">chaos</span></div>
+        <div class="cmd-ref-col cmd-ref-usage"><code>aeonrift chaos --storage-dir .aeonrift/event_store</code></div>
+        <div class="cmd-ref-col cmd-ref-what">Run RIFT-CHAOS fault injection experiments</div>
+      </div>
+      <div class="cmd-ref-row r">
+        <div class="cmd-ref-col cmd-ref-name"><span class="cmd-pill">benchmark</span></div>
+        <div class="cmd-ref-col cmd-ref-usage"><code>aeonrift benchmark</code></div>
+        <div class="cmd-ref-col cmd-ref-what">Run RIFT-Bench evaluation suite (RE Score, overhead)</div>
+      </div>
+      <div class="cmd-ref-row r">
+        <div class="cmd-ref-col cmd-ref-name"><span class="cmd-pill">train</span></div>
+        <div class="cmd-ref-col cmd-ref-usage"><code>aeonrift train --samples 1000 --output ml/models/weights.json</code></div>
+        <div class="cmd-ref-col cmd-ref-what">Train ML Recovery Policy on RIFT-FAIL benchmark dataset</div>
+      </div>
+      <div class="cmd-ref-row r">
+        <div class="cmd-ref-col cmd-ref-name"><span class="cmd-pill">diff</span></div>
+        <div class="cmd-ref-col cmd-ref-usage"><code>aeonrift diff cp-001 cp-002</code></div>
+        <div class="cmd-ref-col cmd-ref-what">Compare state diff between two checkpoint snapshots</div>
+      </div>
+      <div class="cmd-ref-row r">
+        <div class="cmd-ref-col cmd-ref-name"><span class="cmd-pill">doctor</span></div>
+        <div class="cmd-ref-col cmd-ref-usage"><code>aeonrift doctor</code></div>
+        <div class="cmd-ref-col cmd-ref-what">Diagnose runtime environment &amp; installation health</div>
+      </div>
+      <div class="cmd-ref-row r" style="border-bottom:none">
+        <div class="cmd-ref-col cmd-ref-name"><span class="cmd-pill">version</span></div>
+        <div class="cmd-ref-col cmd-ref-usage"><code>aeonrift version</code></div>
+        <div class="cmd-ref-col cmd-ref-what">Print version, OS, Python, and architecture info</div>
       </div>
     </div>
   </div>
@@ -1864,6 +2112,18 @@
   window.addEventListener('scroll', () => {
     document.querySelector('nav').style.boxShadow = window.scrollY > 10 ? '0 2px 0 #0a0a0a' : '';
   });
+
+  // OS Tab Switcher
+  function switchOS(os, btn) {
+    // Hide all panels
+    document.querySelectorAll('.os-panel').forEach(p => p.classList.remove('active'));
+    // Deactivate all tabs
+    document.querySelectorAll('.os-tab').forEach(t => t.classList.remove('active'));
+    // Show selected panel
+    document.getElementById('panel-' + os).classList.add('active');
+    // Activate clicked tab
+    btn.classList.add('active');
+  }
 </script>
 </body>
 </html>
