@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AEONRIFT Enterprise Architecture & User Guide</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 1.8cm 1.5cm;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #111;
+      background: #fff;
+      line-height: 1.55;
+      font-size: 11pt;
+    }
+    h1 {
+      font-size: 24pt;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 4px;
+      color: #000;
+    }
+    h2 {
+      font-size: 15pt;
+      font-weight: 700;
+      border-bottom: 1.5px solid #000;
+      padding-bottom: 4px;
+      margin-top: 24pt;
+      margin-bottom: 10pt;
+      color: #000;
+    }
+    h3 {
+      font-size: 12pt;
+      font-weight: 700;
+      margin-top: 14pt;
+      margin-bottom: 6pt;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      font-size: 8.5pt;
+      font-weight: 700;
+      background: #000;
+      color: #fff;
+      border-radius: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .badge-neon {
+      background: #000;
+      color: #bdff00;
+      border: 1px solid #000;
+    }
+    .meta-box {
+      border: 1px solid #ddd;
+      background: #f8f9fa;
+      padding: 12px 16px;
+      margin: 14pt 0;
+      border-radius: 4px;
+      font-size: 9.5pt;
+    }
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+    .meta-row:last-child { margin-bottom: 0; }
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 9pt;
+      background: #f1f3f5;
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
+    pre {
+      background: #0d0d12;
+      color: #f1f5f9;
+      padding: 12px 16px;
+      border-radius: 4px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 8.5pt;
+      line-height: 1.45;
+      overflow-x: auto;
+      margin: 10pt 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12pt 0;
+      font-size: 9pt;
+    }
+    th, td {
+      border: 1px solid #dee2e6;
+      padding: 6px 10px;
+      text-align: left;
+    }
+    th {
+      background: #f1f3f5;
+      font-weight: 700;
+    }
+    .step-box {
+      border-left: 3px solid #000;
+      padding-left: 14px;
+      margin-bottom: 14pt;
+    }
+    .page-break {
+      page-break-after: always;
+    }
+    .footer {
+      font-size: 8.5pt;
+      color: #777;
+      text-align: center;
+      margin-top: 30pt;
+      border-top: 1px solid #eee;
+      padding-top: 10pt;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+    <div>
+      <span class="badge badge-neon">ENTERPRISE TECHNICAL SPECIFICATION</span>
+      <h1>AEONRIFT</h1>
+      <p style="font-size:12pt;color:#555;margin-top:2px;margin-bottom:0;">
+        Time-Travel Infrastructure &amp; Universal Model Context Protocol (MCP) Runtime
+      </p>
+    </div>
+    <div style="text-align:right;">
+      <span style="font-size:9pt;color:#777;">Version 0.2.0</span><br/>
+      <span style="font-size:9pt;font-weight:700;">Author: Ansh Rajore</span>
+    </div>
+  </div>
+
+  <div class="meta-box">
+    <div class="meta-row"><strong>Official Production URL:</strong> <a href="https://aeonrift.vercel.app">https://aeonrift.vercel.app</a></div>
+    <div class="meta-row"><strong>Public NPM Package:</strong> <a href="https://www.npmjs.com/package/aeonrift">https://www.npmjs.com/package/aeonrift</a> (v0.2.0)</div>
+    <div class="meta-row"><strong>GitHub Repository:</strong> <a href="https://github.com/anshrajore/AEONRIFT-Time-travel-infrastructure-for-AI-agents.">AEONRIFT on GitHub</a></div>
+    <div class="meta-row"><strong>Supported Runtimes:</strong> Claude Desktop, Cursor IDE, Windsurf, LangChain, CrewAI, AutoGen, Node.js, Python 3.8+</div>
+  </div>
+
+  <!-- SECTION 1 -->
+  <h2>1. What Is AEONRIFT?</h2>
+  <p>
+    When an AI agent crashes mid-task, typical systems force a complete, blind restart. In enterprise environments, this causes duplicate Stripe credit charges, repeated database mutations, and wasted tokens.
+  </p>
+  <p>
+    <strong>AEONRIFT</strong> is a high-throughput time-travel runtime that provides mathematical causal durability:
+  </p>
+  <ul>
+    <li><strong>SHA-256 Causal State DAG</strong>: Tracks causal lineage across all LLM steps and tool calls.</li>
+    <li><strong>ACRFence Rollback Guard</strong>: Prevents semantic duplicate side-effects (e.g. charging a credit card twice).</li>
+    <li><strong>Multi-Level Checkpoint Hierarchy (L0–L5)</strong>: Prunes wasteful turn-based snapshots by &gt;75% based on 2026 Crab research.</li>
+    <li><strong>High-Throughput Ring Buffer &amp; Delta Compressor</strong>: Handles 50,000 events/sec with 70–85% payload compression.</li>
+  </ul>
+
+  <!-- SECTION 2 -->
+  <h2>2. Quick Start: Universal Model Context Protocol (MCP)</h2>
+  <p>
+    Any autonomous LLM agent or IDE (Claude Desktop, Cursor, Windsurf) can connect to AEONRIFT with zero custom glue code.
+  </p>
+
+  <div class="step-box">
+    <h3>Step 1: Verify Installation</h3>
+    <pre><code># Test the engine and diagnostics
+python3 ./aeonrift doctor
+python3 ./aeonrift mcp</code></pre>
+  </div>
+
+  <div class="step-box">
+    <h3>Step 2: Connect Claude Desktop</h3>
+    <p>Add the following block to your <code>claude_desktop_config.json</code>:</p>
+    <pre><code>{
+  "mcpServers": {
+    "aeonrift": {
+      "command": "python3",
+      "args": ["-m", "aeonrift.cli.main", "mcp"],
+      "env": {
+        "PYTHONPATH": "/absolute/path/to/AEONRIFT"
+      }
+    }
+  }
+}</code></pre>
+  </div>
+
+  <div class="step-box">
+    <h3>Step 3: Connect Cursor IDE</h3>
+    <p>Open <strong>Cursor Settings &gt; Features &gt; MCP</strong> and click <strong>Add New MCP Server</strong>:</p>
+    <ul>
+      <li><strong>Name</strong>: <code>aeonrift</code></li>
+      <li><strong>Type</strong>: <code>command</code></li>
+      <li><strong>Command</strong>: <code>python3 ./aeonrift mcp</code></li>
+    </ul>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- SECTION 3 -->
+  <h2>3. Available MCP Enterprise Tools</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:30%;">MCP Tool Name</th>
+        <th style="width:35%;">Functionality</th>
+        <th style="width:35%;">Enterprise Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>aeonrift_record_event</code></td>
+        <td>Intercepts tool calls and database writes into the causal DAG.</td>
+        <td>Immutable, tamper-evident audit trail of every agent action.</td>
+      </tr>
+      <tr>
+        <td><code>aeonrift_check_rollback_hazard</code></td>
+        <td>Verifies whether replaying an action causes duplicate mutations.</td>
+        <td>Prevents duplicate payments and ACRFence security vulnerabilities.</td>
+      </tr>
+      <tr>
+        <td><code>aeonrift_create_checkpoint</code></td>
+        <td>Creates HMAC-signed snapshot of agent variables and memory.</td>
+        <td>Enables sub-second state rewinds.</td>
+      </tr>
+      <tr>
+        <td><code>aeonrift_autonomous_recover</code></td>
+        <td>Analyzes failure nodes and computes optimal recovery plans.</td>
+        <td>Autonomous self-healing without human intervention.</td>
+      </tr>
+      <tr>
+        <td><code>aeonrift_inspect_timeline</code></td>
+        <td>Returns full step-by-step causal execution lineage.</td>
+        <td>Deep debugging and multi-agent coordination visibility.</td>
+      </tr>
+      <tr>
+        <td><code>aeonrift_diff_checkpoints</code></td>
+        <td>Calculates delta dictionary between two checkpoints.</td>
+        <td>Zero-overhead state diffing.</td>
+      </tr>
+      <tr>
+        <td><code>aeonrift_health_doctor</code></td>
+        <td>Real-time engine and buffer health diagnostic probe.</td>
+        <td>Production telemetry and cluster heartbeat monitoring.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- SECTION 4 -->
+  <h2>4. CLI Commands Reference (macOS, Linux, Windows)</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Command</th>
+        <th>Syntax</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>mcp</code></td>
+        <td><code>aeonrift mcp</code></td>
+        <td>Launches standard Model Context Protocol server over stdio.</td>
+      </tr>
+      <tr>
+        <td><code>doctor</code></td>
+        <td><code>aeonrift doctor</code></td>
+        <td>Validates Python runtime, DAG engine, and ledger health.</td>
+      </tr>
+      <tr>
+        <td><code>benchmark</code></td>
+        <td><code>aeonrift benchmark</code></td>
+        <td>Runs the RIFT-Bench evaluation suite against agent workloads.</td>
+      </tr>
+      <tr>
+        <td><code>timeline</code></td>
+        <td><code>aeonrift timeline &lt;exec_id&gt;</code></td>
+        <td>Displays ASCII/UTF-8 formatted timeline of execution events.</td>
+      </tr>
+      <tr>
+        <td><code>export</code></td>
+        <td><code>aeonrift export &lt;id&gt; --format dot</code></td>
+        <td>Exports graph to Graphviz DOT or raw JSON.</td>
+      </tr>
+      <tr>
+        <td><code>replay</code></td>
+        <td><code>aeonrift replay &lt;exec_id&gt;</code></td>
+        <td>Interactive time-travel replay runner with step-through mode.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- SECTION 5 -->
+  <h2>5. Published NPM Package Usage</h2>
+  <pre><code>npm install aeonrift@0.2.0</code></pre>
+  <pre><code>import { AeonriftMCPBridge } from "aeonrift";
+
+const bridge = new AeonriftMCPBridge("session_alpha");
+const tools = bridge.getAvailableTools();
+
+// Automatically handle agent actions
+const result = bridge.handleToolCall("aeonrift_record_event", {
+  tool_name: "stripe_payment",
+  arguments: { amount: 150 }
+});</code></pre>
+
+  <div class="footer">
+    AEONRIFT &bull; Architected by Ansh Rajore &bull; Apache-2.0 Open Source &bull; https://aeonrift.vercel.app
+  </div>
+
+</body>
+</html>

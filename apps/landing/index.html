@@ -973,6 +973,158 @@
     .cmd-pill { display: inline-block; padding: 4px 10px; font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; border: 1.5px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.6); }
     .cmd-pill-neon { border-color: rgba(189,255,0,0.35); color: var(--neon); background: rgba(189,255,0,0.06); }
 
+    /* ═══════════════════════════════════════════
+       SECTION: LIVE INTERACTIVE SIMULATOR & MCP
+    ═══════════════════════════════════════════ */
+    .live-demo-section {
+      background: #08080c;
+      border-bottom: 1.5px solid var(--black);
+      color: #fff;
+    }
+    .live-demo-header {
+      padding: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .live-demo-title {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -1px;
+      color: var(--white);
+    }
+    .demo-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+    }
+    .demo-sim-col {
+      padding: 40px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .demo-config-col {
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      background: #0d0d14;
+    }
+    .sim-controls {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn-sim {
+      padding: 10px 18px;
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.04);
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .btn-sim:hover {
+      background: rgba(189,255,0,0.15);
+      border-color: var(--neon);
+      color: var(--neon);
+    }
+    .btn-sim.btn-sim-primary {
+      background: var(--neon);
+      color: #000;
+      border-color: var(--neon);
+    }
+    .btn-sim.btn-sim-primary:hover {
+      background: #d4ff33;
+    }
+    .sim-screen {
+      background: #030305;
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 20px;
+      font-family: var(--mono);
+      font-size: 12px;
+      line-height: 1.8;
+      min-height: 280px;
+      overflow-y: auto;
+      border-radius: 4px;
+    }
+    .sim-step { margin-bottom: 8px; }
+    .sim-tag {
+      padding: 2px 6px;
+      font-size: 10px;
+      font-weight: 700;
+      margin-right: 8px;
+      display: inline-block;
+    }
+    .tag-blue { background: rgba(96,165,250,0.2); color: #60a5fa; }
+    .tag-green { background: rgba(39,201,63,0.2); color: #27c93f; }
+    .tag-yellow { background: rgba(255,189,46,0.2); color: #ffbd2e; }
+    .tag-red { background: rgba(255,95,86,0.2); color: #ff5f56; }
+    .tag-neon { background: rgba(189,255,0,0.2); color: var(--neon); }
+
+    .json-code-box {
+      background: #030305;
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 16px 20px;
+      font-family: var(--mono);
+      font-size: 11.5px;
+      line-height: 1.7;
+      color: #cbd5e1;
+      position: relative;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 4px 10px;
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 700;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.8);
+      cursor: pointer;
+      border-radius: 3px;
+      transition: background 0.15s;
+    }
+    .copy-btn:hover {
+      background: var(--neon);
+      color: #000;
+      border-color: var(--neon);
+    }
+    .platform-tabs {
+      display: flex;
+      gap: 8px;
+    }
+    .p-tab {
+      padding: 6px 14px;
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.5);
+      cursor: pointer;
+    }
+    .p-tab.active {
+      background: rgba(189,255,0,0.12);
+      border-color: var(--neon);
+      color: var(--neon);
+    }
+
     .cta-section {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -1169,6 +1321,7 @@
   <a class="nav-logo" href="#">Aeonrift.</a>
   <ul class="nav-links">
     <li><a href="#how-it-works">Process</a></li>
+    <li><a href="#live-demo">Simulator</a></li>
     <li><a href="#architecture">Architecture</a></li>
     <li><a href="#research">Research</a></li>
     <li><a href="#cli">CLI</a></li>
@@ -1177,7 +1330,7 @@
   </ul>
   <div class="nav-actions">
     <a class="btn-outline" href="https://github.com/anshrajore/AEONRIFT-Time-travel-infrastructure-for-AI-agents." target="_blank">GitHub ↗</a>
-    <a class="btn-neon" href="https://aeonrift.vercel.app" target="_blank">Live Demo</a>
+    <a class="btn-neon" href="#live-demo">Live Demo</a>
   </div>
 </nav>
 
@@ -1384,6 +1537,91 @@
       </div>
       <div class="hiw-card-title">Validate & Resume</div>
       <p class="hiw-desc">RecoveryValidator verifies checkpoint integrity, reconciles environment drift, and resumes from the safest verified state without re-executing side-effects.</p>
+    </div>
+</div>
+
+<!-- ─── SECTION 02.5: LIVE INTERACTIVE DEMO & MCP SUITE ─── -->
+<div class="live-demo-section" id="live-demo">
+  <div class="live-demo-header">
+    <div>
+      <div class="num-label" style="color:rgba(255,255,255,0.4)">SECTION 02.5 — LIVE DEMO &amp; MCP SUITE</div>
+      <h2 class="live-demo-title r">Interactive Agent Simulator &amp; MCP Config</h2>
+    </div>
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+      <span class="tag tag-neon">Live In-Browser Simulation</span>
+      <a class="btn-outline" style="border-color:var(--neon);color:var(--neon);font-size:11px;padding:6px 14px;background:rgba(189,255,0,0.06)" href="AEONRIFT_Enterprise_User_Guide.pdf" target="_blank" download="AEONRIFT_Enterprise_User_Guide.pdf">Download Guide PDF ↓</a>
+      <a class="btn-outline" style="border-color:rgba(255,255,255,0.3);color:#fff;font-size:11px;padding:6px 14px" href="docs/MCP_INTEGRATION.md" target="_blank">Full MCP Docs ↗</a>
+    </div>
+  </div>
+
+  <div class="demo-grid">
+    <!-- Left: Live Simulation Terminal -->
+    <div class="demo-sim-col">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <span style="font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5)">1. Autonomous Recovery Simulator</span>
+        <span class="sim-tag tag-neon" id="sim-status">AGENT READY</span>
+      </div>
+
+      <div class="sim-screen" id="sim-screen">
+        <div class="sim-step"><span class="sim-tag tag-blue">[INIT]</span> Initialized Causal DAG Session: <code>session-live-demo-992</code></div>
+        <div class="sim-step"><span class="sim-tag tag-green">[TOOL]</span> Step 01: <code>query_database({"table": "users", "id": 42})</code> &rarr; READ_ONLY (no risk)</div>
+        <div class="sim-step"><span class="sim-tag tag-yellow">[FX]</span> Step 02: <code>execute_stripe_charge({"amount": 180.00, "user": 42})</code> &rarr; IRREVERSIBLE MUTATION</div>
+        <div class="sim-step"><span class="sim-tag tag-neon">[CHECKPOINT]</span> Created L3 HMAC Snapshot: <code>ckpt_sha256_88b1f4...</code></div>
+        <div class="sim-step"><span class="sim-tag tag-blue">[TOOL]</span> Step 03: <code>send_confirmation_email({"user": 42})</code></div>
+        <div class="sim-step"><span class="sim-tag tag-red">[CRASH]</span> Step 04: <code>API_503_NETWORK_TIMEOUT: LLM downstream desync failure</code></div>
+      </div>
+
+      <div class="sim-controls">
+        <button class="btn-sim btn-sim-primary" onclick="runSimRecovery()">▶ Trigger Autonomous Time-Travel Recovery</button>
+        <button class="btn-sim" onclick="injectChaosError()">Inject Chaos Fault</button>
+        <button class="btn-sim" onclick="resetSim()">Reset Session</button>
+      </div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.4);line-height:1.6">
+        Simulates AEONRIFT's <strong>ACRFence Rollback Guard</strong> preventing duplicate charges upon failure replay, restoring from the exact L3 checkpoint.
+      </div>
+    </div>
+
+    <!-- Right: Universal MCP Configuration JSON Box -->
+    <div class="demo-config-col">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <span style="font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5)">2. Universal MCP Configuration</span>
+        <div class="platform-tabs">
+          <button class="p-tab active" onclick="switchMCPTab('claude', this)">Claude Desktop</button>
+          <button class="p-tab" onclick="switchMCPTab('cursor', this)">Cursor IDE</button>
+          <button class="p-tab" onclick="switchMCPTab('node', this)">Node / TS</button>
+        </div>
+      </div>
+
+      <!-- JSON Box -->
+      <div class="json-code-box">
+        <button class="copy-btn" onclick="copyMCPConfig(this)">COPY JSON</button>
+        <pre id="mcp-json-code" style="margin:0;font-family:var(--mono);font-size:11.5px"><code>{
+  "mcpServers": {
+    "aeonrift": {
+      "command": "python3",
+      "args": ["-m", "aeonrift.cli.main", "mcp"],
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    }
+  }
+}</code></pre>
+      </div>
+
+      <!-- Instructions List -->
+      <div style="display:flex;flex-direction:column;gap:8px;font-size:12px;color:rgba(255,255,255,0.6);line-height:1.6">
+        <div><strong style="color:#fff">Quick Install Steps:</strong></div>
+        <div id="mcp-steps-text">
+          1. Paste this into <code>~/Library/Application Support/Claude/claude_desktop_config.json</code><br/>
+          2. Run <code>python3 ./aeonrift doctor</code> in terminal to verify engine.<br/>
+          3. Restart Claude Desktop &mdash; Claude will automatically register AEONRIFT tools for safe time travel.
+        </div>
+      </div>
+
+      <div style="padding:12px 16px;background:rgba(189,255,0,0.06);border:1px solid rgba(189,255,0,0.2);border-radius:4px">
+        <span class="tag tag-neon" style="font-size:9px">NPM PACKAGE</span>
+        <span style="font-family:var(--mono);font-size:12px;color:#fff;margin-left:8px">npm install aeonrift@0.2.0</span>
+      </div>
     </div>
   </div>
 </div>
@@ -2151,6 +2389,99 @@
     document.getElementById('panel-' + os).classList.add('active');
     // Activate clicked tab
     btn.classList.add('active');
+  }
+
+  // MCP JSON Tab Configs
+  const mcpConfigs = {
+    claude: {
+      json: `{\n  "mcpServers": {\n    "aeonrift": {\n      "command": "python3",\n      "args": ["-m", "aeonrift.cli.main", "mcp"],\n      "env": {\n        "PYTHONPATH": "\${workspaceFolder}"\n      }\n    }\n  }\n}`,
+      steps: `1. Paste this into <code>~/Library/Application Support/Claude/claude_desktop_config.json</code><br/>2. Run <code>python3 ./aeonrift doctor</code> in terminal to verify engine.<br/>3. Restart Claude Desktop &mdash; Claude will automatically register AEONRIFT tools for safe time travel.`
+    },
+    cursor: {
+      json: `{\n  "mcpServers": {\n    "aeonrift": {\n      "command": "aeonrift",\n      "args": ["mcp"]\n    }\n  }\n}`,
+      steps: `1. In Cursor, open <strong>Settings &gt; Features &gt; MCP</strong>.<br/>2. Click <strong>Add New MCP Server</strong> &mdash; Name: <code>aeonrift</code>, Type: <code>command</code>, Command: <code>aeonrift mcp</code>.<br/>3. Cursor's agent model will now execute zero-risk tool calls with ACRFence protection.`
+    },
+    node: {
+      json: `import { AeonriftMCPBridge } from "aeonrift";\n\nconst bridge = new AeonriftMCPBridge("agent-session-01");\nconst tools = bridge.getAvailableTools();\n\n// Handle agent execution tool calls\nconst result = bridge.handleToolCall("aeonrift_record_event", {\n  tool_name: "query_database",\n  arguments: { id: 42 }\n});`,
+      steps: `1. Install package: <code>npm install aeonrift@0.2.0</code><br/>2. Import <code>AeonriftMCPBridge</code> in your TypeScript / Node.js agent pipeline.<br/>3. Automatically wraps custom agent frameworks with causal time-travel durability.`
+    }
+  };
+
+  function switchMCPTab(platform, btn) {
+    document.querySelectorAll('.p-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    const data = mcpConfigs[platform];
+    document.getElementById('mcp-json-code').innerHTML = `<code>${data.json.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</code>`;
+    document.getElementById('mcp-steps-text').innerHTML = data.steps;
+  }
+
+  function copyMCPConfig(btn) {
+    const code = document.getElementById('mcp-json-code').innerText;
+    navigator.clipboard.writeText(code).then(() => {
+      const orig = btn.innerText;
+      btn.innerText = "COPIED!";
+      btn.style.background = "#bdff00";
+      btn.style.color = "#000";
+      setTimeout(() => {
+        btn.innerText = orig;
+        btn.style.background = "";
+        btn.style.color = "";
+      }, 1500);
+    });
+  }
+
+  // Interactive Live Simulator Logic
+  function runSimRecovery() {
+    const screen = document.getElementById('sim-screen');
+    const status = document.getElementById('sim-status');
+    status.innerText = "SELF-HEALING ACTIVE";
+    status.className = "sim-tag tag-yellow";
+
+    const steps = [
+      { tag: "tag-blue", label: "[DIAGNOSE]", text: "Traversing Causal DAG: Detected failure node <code>evt-step-04</code>" },
+      { tag: "tag-neon", label: "[ACRFENCE]", text: "Checking Ledger: <code>execute_stripe_charge</code> is IRREVERSIBLE & COMMITTED. Duplicate execution BLOCKED." },
+      { tag: "tag-yellow", label: "[ROLLBACK]", text: "Rolling back volatile state memory to L3 HMAC checkpoint <code>ckpt_sha256_88b1f4</code>." },
+      { tag: "tag-green", label: "[RECOVERY]", text: "Executing Verified-Prefix Replay: Skipping Step 02 (charge already safe), Replaying Step 03 &rarr; SUCCESS." },
+      { tag: "tag-neon", label: "[RESUME]", text: "Execution resumed at Step 05 without human intervention. Zero duplicate side-effects. Recovery latency: 14ms." }
+    ];
+
+    steps.forEach((s, idx) => {
+      setTimeout(() => {
+        const div = document.createElement('div');
+        div.className = "sim-step";
+        div.innerHTML = `<span class="sim-tag ${s.tag}">${s.label}</span> ${s.text}`;
+        screen.appendChild(div);
+        screen.scrollTop = screen.scrollHeight;
+        if (idx === steps.length - 1) {
+          status.innerText = "RECOVERED (HEALTHY)";
+          status.className = "sim-tag tag-green";
+        }
+      }, (idx + 1) * 350);
+    });
+  }
+
+  function injectChaosError() {
+    const screen = document.getElementById('sim-screen');
+    const div = document.createElement('div');
+    div.className = "sim-step";
+    div.innerHTML = `<span class="sim-tag tag-red">[CHAOS]</span> Injected synthetic network packet drop on thread worker 03 &rarr; FailureClassifier triggered.`;
+    screen.appendChild(div);
+    screen.scrollTop = screen.scrollHeight;
+  }
+
+  function resetSim() {
+    const screen = document.getElementById('sim-screen');
+    screen.innerHTML = `
+      <div class="sim-step"><span class="sim-tag tag-blue">[INIT]</span> Initialized Causal DAG Session: <code>session-live-demo-992</code></div>
+      <div class="sim-step"><span class="sim-tag tag-green">[TOOL]</span> Step 01: <code>query_database({"table": "users", "id": 42})</code> &rarr; READ_ONLY (no risk)</div>
+      <div class="sim-step"><span class="sim-tag tag-yellow">[FX]</span> Step 02: <code>execute_stripe_charge({"amount": 180.00, "user": 42})</code> &rarr; IRREVERSIBLE MUTATION</div>
+      <div class="sim-step"><span class="sim-tag tag-neon">[CHECKPOINT]</span> Created L3 HMAC Snapshot: <code>ckpt_sha256_88b1f4...</code></div>
+      <div class="sim-step"><span class="sim-tag tag-blue">[TOOL]</span> Step 03: <code>send_confirmation_email({"user": 42})</code></div>
+      <div class="sim-step"><span class="sim-tag tag-red">[CRASH]</span> Step 04: <code>API_503_NETWORK_TIMEOUT: LLM downstream desync failure</code></div>
+    `;
+    const status = document.getElementById('sim-status');
+    status.innerText = "AGENT READY";
+    status.className = "sim-tag tag-neon";
   }
 </script>
 </body>
