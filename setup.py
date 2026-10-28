@@ -21,6 +21,8 @@ setup(
         "services.state",
         "services.coordinator",
         "services.gateway",
+        "services.mcp",
+        "services.throughput",
         "storage",
         "benchmarks",
         "ml"
@@ -32,6 +34,8 @@ setup(
         "aeonrift.cli": "packages/cli/aeonrift/cli",
         "adapters": "adapters",
         "services": "services",
+        "services.mcp": "services/mcp",
+        "services.throughput": "services/throughput",
         "storage": "storage",
         "benchmarks": "benchmarks",
         "ml": "ml"

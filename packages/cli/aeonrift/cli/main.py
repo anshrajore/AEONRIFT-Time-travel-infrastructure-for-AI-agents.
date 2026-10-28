@@ -24,6 +24,8 @@ sys.path.insert(0, os.path.abspath("tests/chaos"))
 sys.path.insert(0, os.path.abspath("benchmarks"))
 sys.path.insert(0, os.path.abspath("apps/dashboard"))
 sys.path.insert(0, os.path.abspath("adapters"))
+sys.path.insert(0, os.path.abspath("services/mcp"))
+sys.path.insert(0, os.path.abspath("services/throughput"))
 
 from aeonrift.core.events import EventType
 from aeonrift.cli.utils import style, symbol, normalize_path
@@ -247,6 +249,16 @@ def cmd_version(args):
     print(f"  Architecture:   {platform.machine()}")
 
 
+def cmd_mcp(args):
+    """Launch standard Model Context Protocol (MCP) Server over stdio."""
+    from services.mcp.server import AeonriftMCPServer
+    store_dir = normalize_path(args.storage_dir)
+    sys.stderr.write(f"{symbol('sparkles')} AEONRIFT MCP Server starting on stdio (store: {store_dir})\n")
+    sys.stderr.flush()
+    server = AeonriftMCPServer(storage_dir=store_dir)
+    server.run_stdio()
+
+
 def main():
     parser = argparse.ArgumentParser(prog="aeonrift", description="AEONRIFT — Time-travel infrastructure for AI agents.")
     subparsers = parser.add_subparsers(dest="command")
@@ -294,6 +306,9 @@ def main():
     doc_p = subparsers.add_parser("doctor", help="Run system diagnostics")
     version_p = subparsers.add_parser("version", help="Print version & platform info")
 
+    mcp_p = subparsers.add_parser("mcp", help="Launch Model Context Protocol (MCP) Server for Claude & Cursor")
+    mcp_p.add_argument("--storage-dir", default=".aeonrift/event_store", help="Storage path")
+
     args = parser.parse_args()
 
     if args.command == "init":
@@ -320,6 +335,8 @@ def main():
         cmd_doctor(args)
     elif args.command == "version":
         cmd_version(args)
+    elif args.command == "mcp":
+        cmd_mcp(args)
     else:
         parser.print_help()
 
