@@ -1339,37 +1339,49 @@
   <div class="hiw-grid">
     <div class="hiw-card r">
       <div class="hiw-card-num">01</div>
-      <div class="hiw-card-icon">⚡</div>
+      <div class="hiw-card-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
       <div class="hiw-card-title">Intercept</div>
       <p class="hiw-desc">AeonriftRuntime wraps every tool call, evaluating rollback hazards and semantic checkpoint policies before execution proceeds.</p>
     </div>
     <div class="hiw-card r">
       <div class="hiw-card-num">02</div>
-      <div class="hiw-card-icon">🌐</div>
+      <div class="hiw-card-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+      </div>
       <div class="hiw-card-title">Emit to DAG</div>
       <p class="hiw-desc">Each event is SHA-256 causal-hashed into an append-only DAG. Side effects are registered in the idempotency ledger with unique keys.</p>
     </div>
     <div class="hiw-card r">
       <div class="hiw-card-num">03</div>
-      <div class="hiw-card-icon">💾</div>
+      <div class="hiw-card-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      </div>
       <div class="hiw-card-title">Checkpoint</div>
       <p class="hiw-desc">Layered snapshots L0–L5 are created at semantically significant moments. HMAC-signed and secret-scrubbed before persistence.</p>
     </div>
     <div class="hiw-card r">
       <div class="hiw-card-num">04</div>
-      <div class="hiw-card-icon">🔥</div>
+      <div class="hiw-card-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      </div>
       <div class="hiw-card-title">Detect Failure</div>
       <p class="hiw-desc">FailureClassifier pattern-matches failures: TOOL_FAILURE, NETWORK, AUTH, STATE_CORRUPTION, LLM_FAILURE — each mapped to a recovery strategy.</p>
     </div>
     <div class="hiw-card r">
       <div class="hiw-card-num">05</div>
-      <div class="hiw-card-icon">🧠</div>
+      <div class="hiw-card-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+      </div>
       <div class="hiw-card-title">Plan Recovery</div>
       <p class="hiw-desc">RecoveryPlanner traverses the causal graph, checks ledger hazards, and selects REPLAY / REPAIR / REPLAN / COMPENSATE with a confidence score.</p>
     </div>
     <div class="hiw-card r">
       <div class="hiw-card-num">06</div>
-      <div class="hiw-card-icon">✅</div>
+      <div class="hiw-card-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
       <div class="hiw-card-title">Validate & Resume</div>
       <p class="hiw-desc">RecoveryValidator verifies checkpoint integrity, reconciles environment drift, and resumes from the safest verified state without re-executing side-effects.</p>
     </div>
@@ -1392,7 +1404,7 @@
       <span class="mode-bg-word">Replay</span>
       <div class="mode-title">REPLAY</div>
       <p class="mode-desc">Re-execute events from the last safe checkpoint with idempotency guarantees. Uses verified-prefix replay inspired by RePoT. Fastest path to resumption.</p>
-      <span class="mode-tag neon-tag">⚡ Fastest recovery</span>
+      <span class="mode-tag neon-tag">DETERMINISTIC RESUMPTION</span>
     </div>
     <div class="mode-card r">
       <div class="mode-num">MODE / 02</div>
@@ -1400,7 +1412,7 @@
       <span class="mode-bg-word">Repair</span>
       <div class="mode-title">REPAIR</div>
       <p class="mode-desc">Surgically fix corrupted state nodes in the causal DAG without replaying the entire trajectory. Minimises re-computation cost and avoids unnecessary re-execution.</p>
-      <span class="mode-tag">🔧 Minimal overhead</span>
+      <span class="mode-tag">MINIMAL OVERHEAD</span>
     </div>
     <div class="mode-card r">
       <div class="mode-num">MODE / 03</div>
@@ -1408,7 +1420,7 @@
       <span class="mode-bg-word">Replan</span>
       <div class="mode-title">REPLAN</div>
       <p class="mode-desc">When the original plan is unrecoverable, generate a new execution path from the current known-good environment state. Full strategic pivot, safe restart.</p>
-      <span class="mode-tag">🔄 Strategy pivot</span>
+      <span class="mode-tag">STRATEGY PIVOT</span>
     </div>
     <div class="mode-card r">
       <div class="mode-num">MODE / 04</div>
@@ -1416,7 +1428,7 @@
       <span class="mode-bg-word">Comp.</span>
       <div class="mode-title">COMPENSATE</div>
       <p class="mode-desc">For irreversible side effects that cannot be rolled back, issue compensating actions. Guards against ACRFence-class rollback attacks: duplicate payments, resurrected credentials.</p>
-      <span class="mode-tag neon-tag">🛡️ Safety critical</span>
+      <span class="mode-tag neon-tag">ACRFENCE SAFETY GUARD</span>
     </div>
   </div>
 </div>
@@ -1545,19 +1557,19 @@
       <div class="r-card-source">arXiv 2026 · Crab</div>
       <div class="r-card-title">Semantic-Aware Checkpointing</div>
       <p class="r-card-desc">Crab introduces semantic checkpointing for agent sandboxes, showing that blind per-turn snapshots are wasteful and fail to capture recovery-relevant state transitions.</p>
-      <div class="r-card-stat">📊 &gt;75% of turns produce no recovery-relevant state</div>
+      <div class="r-card-stat">[METRIC] &gt;75% of turns produce no recovery-relevant state</div>
     </div>
     <div class="research-card r">
       <div class="r-card-source">arXiv 2026 · RePoT</div>
       <div class="r-card-title">Verified-Prefix Replay</div>
       <p class="r-card-desc">RePoT demonstrates that safe recovery requires cryptographically verified prefix trajectories. Simple event log replay without hash verification leads to non-deterministic failures.</p>
-      <div class="r-card-stat">📊 Checkpoint repair eliminates false replays</div>
+      <div class="r-card-stat">[BENCHMARK] Checkpoint repair eliminates false replays</div>
     </div>
     <div class="research-card r">
       <div class="r-card-source">arXiv:2604.28138 · ACRFence</div>
       <div class="r-card-title">Semantic Rollback Attacks</div>
       <p class="r-card-desc">ACRFence reveals that naive checkpoint restore creates catastrophic security vulnerabilities: duplicate payment execution, resurrected invalidated credentials, and cross-session state desync.</p>
-      <div class="r-card-stat">🛡️ AEONRIFT ledger guards all ACRFence attack classes</div>
+      <div class="r-card-stat">[SECURITY] AEONRIFT ledger guards all ACRFence attack classes</div>
     </div>
   </div>
 </div>
@@ -1576,13 +1588,13 @@
   <!-- OS Tab Switcher -->
   <div class="os-tab-bar">
     <button class="os-tab active" onclick="switchOS('mac', this)">
-      <span class="os-tab-icon">🍎</span> macOS
+      <span class="os-tab-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg></span> macOS
     </button>
     <button class="os-tab" onclick="switchOS('linux', this)">
-      <span class="os-tab-icon">🐧</span> Linux
+      <span class="os-tab-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span> Linux
     </button>
     <button class="os-tab" onclick="switchOS('win', this)">
-      <span class="os-tab-icon">🪟</span> Windows
+      <span class="os-tab-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg></span> Windows
     </button>
   </div>
 
@@ -1605,7 +1617,7 @@
               <br/>
               <div><span class="t-comment"># Run CLI directly (no pip install needed)</span></div>
               <div><span class="t-prompt">$ </span><span class="t-cmd">python3</span> <span class="t-flag">./aeonrift</span> <span class="t-arg">doctor</span></div>
-              <div><span class="t-ok">🩺 System healthy and ready for autonomous fault-tolerance!</span></div>
+              <div><span class="t-ok">[OK] System verified and ready for autonomous fault-tolerance</span></div>
               <br/>
               <div><span class="t-comment"># Or install Python wheel globally</span></div>
               <div><span class="t-prompt">$ </span><span class="t-cmd">pip3</span> <span class="t-flag">install</span> <span class="t-arg">dist/aeonrift-0.1.0-py3-none-any.whl</span></div>
@@ -1662,7 +1674,7 @@
               <div><span class="t-comment"># Make CLI executable and run</span></div>
               <div><span class="t-prompt">$ </span><span class="t-cmd">chmod</span> <span class="t-flag">+x</span> <span class="t-arg">./aeonrift</span></div>
               <div><span class="t-prompt">$ </span><span class="t-cmd">python3</span> <span class="t-flag">./aeonrift</span> <span class="t-arg">doctor</span></div>
-              <div><span class="t-ok">🩺 System healthy and ready for autonomous fault-tolerance!</span></div>
+              <div><span class="t-ok">[OK] System verified and ready for autonomous fault-tolerance</span></div>
               <br/>
               <div><span class="t-comment"># Install wheel to system Python</span></div>
               <div><span class="t-prompt">$ </span><span class="t-cmd">pip3</span> <span class="t-flag">install --user</span> <span class="t-arg">dist/aeonrift-0.1.0-py3-none-any.whl</span></div>
@@ -1930,26 +1942,34 @@
   <div class="contents-grid">
     <div class="contents-card r">
       <div class="cc-num">PART 01</div>
-      <div class="cc-icon">🌐</div>
+      <div class="cc-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+      </div>
       <div class="cc-title">Core Engine</div>
       <p class="cc-sub">CausalStateGraph, SideEffectLedger, RiftPolicyEngine, ExecutionEvent — the mathematical heart of AEONRIFT.</p>
     </div>
     <div class="contents-card r">
       <div class="cc-num">PART 02</div>
-      <div class="cc-icon">⚡</div>
-      <div class="cc-title">Runtime SDK</div>
-      <p class="cc-sub">AeonriftRuntime wraps your agent's tool calls. Python SDK + TypeScript NPM package for full-stack integration.</p>
+      <div class="cc-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <div class="cc-title">Runtime &amp; MCP Bridge</div>
+      <p class="cc-sub">AeonriftRuntime + Model Context Protocol Server for Claude Desktop and Cursor with TypeScript NPM package.</p>
     </div>
     <div class="contents-card r">
       <div class="cc-num">PART 03</div>
-      <div class="cc-icon">🧠</div>
+      <div class="cc-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+      </div>
       <div class="cc-title">ML Models</div>
       <p class="cc-sub">RiftPredictPolicyModel, RiftCheckpointPredictor, RIFT-FAIL dataset generator, PolicyTrainer — AI-driven decisions.</p>
     </div>
     <div class="contents-card r">
       <div class="cc-num">PART 04</div>
-      <div class="cc-icon">🛡️</div>
-      <div class="cc-title">Security + Fleet</div>
+      <div class="cc-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="cc-title">Security &amp; Fleet</div>
       <p class="cc-sub">HMAC signing, secret scrubbing, multi-agent FleetCoordinator, causal cascade recovery across agent networks.</p>
     </div>
   </div>
@@ -1984,31 +2004,39 @@
       <div class="dev-specs-title">Architectural Contributions</div>
       <div class="dev-spec-list">
         <div class="dev-spec-item">
-          <div class="dev-spec-icon">🌐</div>
+          <div class="dev-spec-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          </div>
           <div>
             <div class="dev-spec-title">Causal State Graph &amp; Parent Chaining</div>
             <div class="dev-spec-desc">Engineered the SHA-256 parent-hashed DAG primitive for cryptographically tamper-evident event lineage and sub-millisecond safe-checkpoint resolution.</div>
           </div>
         </div>
         <div class="dev-spec-item">
-          <div class="dev-spec-icon">🛡️</div>
+          <div class="dev-spec-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
           <div>
             <div class="dev-spec-title">Rollback Guard &amp; Idempotency Ledger</div>
             <div class="dev-spec-desc">Designed side-effect barriers preventing duplicate payments, API re-mutations, and ACRFence-class semantic rollback attacks during trajectory replay.</div>
           </div>
         </div>
         <div class="dev-spec-item">
-          <div class="dev-spec-icon">💾</div>
+          <div class="dev-spec-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
           <div>
             <div class="dev-spec-title">Multi-Level Checkpoint Engine (L0–L5)</div>
             <div class="dev-spec-desc">Implemented semantic turn-pruning policy based on 2026 Crab research, reducing snapshot storage overhead by over 75%.</div>
           </div>
         </div>
         <div class="dev-spec-item">
-          <div class="dev-spec-icon">📦</div>
+          <div class="dev-spec-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          </div>
           <div>
-            <div class="dev-spec-title">Cross-Language Runtime &amp; NPM Release</div>
-            <div class="dev-spec-desc">Built the full Python SDK, CLI runner, LangChain/CrewAI adapters, and published the official `aeonrift` TypeScript SDK package to NPM.</div>
+            <div class="dev-spec-title">Universal MCP &amp; NPM v0.2.0 Release</div>
+            <div class="dev-spec-desc">Built Model Context Protocol (MCP) server for Claude/Cursor, Python SDK, CLI runner, and published `aeonrift@0.2.0` to the NPM registry.</div>
           </div>
         </div>
       </div>

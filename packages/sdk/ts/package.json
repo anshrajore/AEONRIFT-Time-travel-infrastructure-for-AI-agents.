@@ -1,7 +1,7 @@
 {
   "name": "aeonrift",
-  "version": "0.1.0",
-  "description": "AEONRIFT — Time-travel infrastructure and fault-tolerant runtime for AI agents.",
+  "version": "0.2.0",
+  "description": "AEONRIFT — Universal Model Context Protocol (MCP) and Time-Travel Runtime for AI Agents.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
@@ -12,6 +12,10 @@
     "test": "node test/test_sdk.js"
   },
   "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "claude",
+    "cursor",
     "ai",
     "agents",
     "agentic-ai",
