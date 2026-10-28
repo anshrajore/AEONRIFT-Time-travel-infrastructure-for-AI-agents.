@@ -88,6 +88,14 @@ python3 ./aeonrift benchmark
 pip install dist/aeonrift-0.1.0-py3-none-any.whl
 ```
 
+### Option C: Universal Model Context Protocol (MCP) Server
+Integrate with **Claude Desktop**, **Cursor IDE**, **Windsurf**, or **Microsoft Semantic Kernel**:
+```bash
+# Launch MCP Server over stdio
+python3 ./aeonrift mcp
+```
+*(See [MCP Integration Guide](docs/MCP_INTEGRATION.md) for 30-second copy-paste configurations).*
+
 ---
 
 ## 💻 Usage Examples
